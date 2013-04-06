@@ -1,8 +1,8 @@
 define(["Controller"] , function (Controller){
 
-	Controller.defineController ('test' , {
+	Controller.defineController ('autre' , {
 		testAction : function () {
-			alert("testaction");
+			alert("autreAction");
 		}
 	})
 
