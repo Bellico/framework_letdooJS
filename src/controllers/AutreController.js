@@ -1,8 +1,8 @@
-define(["Controller"] , function (Controller){
+define(["Controller","jquery"] , function (Controller,$){
 
 	Controller.defineController ('autre' , {
 		testAction : function () {
-			alert("autreAction");
+			$("body").html("coucou");
 		}
 	})
 

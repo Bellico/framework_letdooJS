@@ -1,5 +1,10 @@
 define(["Mustache"] , function (Mustache) {
-	//var output = Mustache.compile("{{title}} spends {{calc}}");
-  	//output = output({title : 'title' , calc :'calc'});
-  	//$("body").html(output);
+
+	require (["text!src/views/test.html" ] , function (f) {
+		console.log(f);
+		var output = Mustache.compile("{{title}} spends {{calc}}");
+	  	output = output({title : 'title' , calc :'calc'});
+	  	console.log(output);
+	})
+
 })

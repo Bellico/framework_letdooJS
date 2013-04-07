@@ -2,8 +2,8 @@
 (function() {
 
 	require.config({
-		baseUrl:  Environnement.getPath() ,
-		paths: {
+		baseUrl :  Environnement.getPath() ,
+		paths : {
 			//LetDooJs Paths
 			Render : "letdoojs/scripts/Render",
 			Controller : "letdoojs/scripts/Controller",
@@ -12,7 +12,8 @@
 			routing : "app/routing",
 
 			//Librairies Paths
-			domReady : "lib/domReady",
+			text : 'lib/require/text',
+			domReady : "lib/require/domReady",
 			jquery : "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
 			Mustache : "lib/mustache"
 		}
@@ -20,29 +21,15 @@
 
 	require([
 		"domReady",
-		"Controller",
 		"Router",
-		"routing"
+		"routing",
+		"Render"
 		],
-		function(domReady,Controller,Router,routing) {
-
+		function(domReady,Router,routing,Render) {
 			domReady(function () {
-				//loadRoot
-				//loadConfig
-				//ImportCSS LETDOOJS
-
-
-
-
-
-			var router = new Router(routing);
-
-			/*
-			window.onpopstate = function (event) {
-				console.log(event);
-			}*/
-
-
+			//loadConfig
+			//ImportCSS LETDOOJS
+			new Router(routing);
 		 });
 	});
 

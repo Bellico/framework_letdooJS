@@ -1,15 +1,16 @@
 define(["Controller"] , function(Controller){
 
-	var Process = function (P) {
+	var Process = function (_R) {
 
-		var nameController = P.controller[0].toUpperCase() + P.controller.substring(1) + "Controller";
+		var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
 
 		require (["src/controllers/" + nameController] , function () {
 
-			var controllerCalled = Controller.getController(P.controller);
-			var actionCalled = P.action +"Action" ;
+			var controllerCalled = Controller.getController(_R.controller);
+			var actionCalled = _R.action +"Action" ;
+			history.pushState( _R , _R.controller + "-" + actionCalled, Environnement.getWebPath() + _R.pattern);
 			controllerCalled[actionCalled]();
-			//history.pushState({} , P.controller + "-" + actionCalled, P.pattern);
+
 		});
 	}
 

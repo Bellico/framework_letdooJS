@@ -1,24 +1,41 @@
 define(["Process"] , function(Process){
 
 	var Router = function (routes) {
+
 		var routes = routes;
 
-		var pattern = this.getPattern();
-        var routeCalled = this.getRoute(routes , pattern);
+		var pattern = getPattern();
+        var routeCalled = getRouteByPattern(pattern);
         var process = new Process(routeCalled);
-	}
 
-	Router.prototype.getPattern = function() {
-		var url = location.href ;
-		var pattern = url.replace(Environnement.getPath() + "web" ,"");
-		return pattern ;
-	}
 
-	Router.prototype.getRoute = function (routes , pattern) {
-		for (var i in routes) {
-			if (routes[i].pattern == pattern) return routes[i];
+        window.onpopstate = function (event) {
+        	var _R = event.state;
+	        var process = new Process( _R);
 		}
-		return null;
+
+		function getPattern () {
+			var url = location.href ;
+			var pattern = url.replace(Environnement.getWebPath() ,"");
+			return pattern ;
+		}
+
+		function getRouteByPattern (pattern) {
+			for (var i in routes) {
+				if (routes[i].pattern == pattern) return routes[i];
+			}
+			return null;
+		}
+
+		function getRouteByName (name) {
+			return routes[name];
+		}
+
+		Router.prototype.setRoute = function (){
+			var routeCalled = getRouteByName("mySecondUrl");
+	        var process = new Process(routeCalled);
+		}
+
 	}
 
 	return Router;
