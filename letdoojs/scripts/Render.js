@@ -1,10 +1,13 @@
 define(["Mustache"] , function (Mustache) {
 
-	require (["text!src/views/test.html" ] , function (f) {
-		console.log(f);
-		var output = Mustache.compile("{{title}} spends {{calc}}");
-	  	output = output({title : 'title' , calc :'calc'});
-	  	console.log(output);
-	})
+	var Render = {
+
+		generateView : function (_V) {
+			return Mustache.compile(_V);
+		}
+
+	}
+
+	return Render;
 
 })

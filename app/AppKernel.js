@@ -22,10 +22,9 @@
 	require([
 		"domReady",
 		"Router",
-		"routing",
-		"Render"
+		"routing"
 		],
-		function(domReady,Router,routing,Render) {
+		function(domReady,Router,routing) {
 			domReady(function () {
 			//loadConfig
 			//ImportCSS LETDOOJS
