@@ -31,7 +31,7 @@ define(["Process"] , function(Process){
 			return routes[name];
 		}
 
-		Router.prototype.setRoute = function (){
+		Router.prototype.go = function (){
 			var routeCalled = getRouteByName("mySecondUrl");
 	        var process = new Process(routeCalled);
 		}

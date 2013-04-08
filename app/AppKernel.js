@@ -22,13 +22,19 @@
 	require([
 		"domReady",
 		"Router",
-		"routing"
+		"routing",
+		"jquery"
 		],
-		function(domReady,Router,routing) {
+		function(domReady,Router,routing,$) {
 			domReady(function () {
 			//loadConfig
 			//ImportCSS LETDOOJS
-			new Router(routing);
+			var r =new Router(routing);
+
+			console.log("testaction");
+			$("#event").click(function(){
+				r.go("mySecondUrl");
+			})
 		 });
 	});
 

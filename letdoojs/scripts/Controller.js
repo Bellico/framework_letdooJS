@@ -4,6 +4,8 @@ define(["Render"],function(Render){
 
 		controllerdefined : [],
 
+		viewsCompiled : [],
+
 		defineController : function (nameController, ObjectController){
 			this.controllerdefined[nameController] = ObjectController ;
 		},
@@ -13,11 +15,16 @@ define(["Render"],function(Render){
 		},
 
 		render : function (view, params) {
-			require (["text!src/views/" + view ] , function (_V) {
-				var view = Render.generateView(_V);
-		  		output = view(params);
-		  		console.log(output);
-		  	})
+			var _this = this ;
+			var template = this.viewsCompiled[view];
+			if(template){
+				var v = Render.generateView(template, params);
+			}else{
+				Render.compileView(view,function(template){
+			  		_this.viewsCompiled[view] = template;
+			  		var v = Render.generateView(template, params);
+				});
+			}
 		}
 
 	}

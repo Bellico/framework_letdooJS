@@ -5,6 +5,7 @@ define(["Controller"] , function (Controller){
 
 		testAction : function () {
 
+
 			console.log("testaction");
 
 			Controller.render("test.html" , {
