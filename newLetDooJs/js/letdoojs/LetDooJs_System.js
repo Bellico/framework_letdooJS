@@ -2,37 +2,41 @@ LetDooJS.Core.System = function () {
 
 	var DOMhead = document.getElementsByTagName("head")[0];
 	var files_System = {
-		Router : "core/Router.js"
+		Router : "core/Router.js",
+		Environnement : "core/Environnement.js",
+		Routing : "app/Routing.js",
 	}
 	var scripts_imported = {};
 
 	LetDooJS.Core.System.prototype.import = function (scripts, callback) {
-		for (var i in scripts){
-			scripts_imported[scripts[i]] = false ;
+		var scriptToImport = [];
+		for (var name in scripts){
+			if(typeof scripts_imported[scripts[name]] == "undefined") {
+				scripts_imported[scripts[name]] = false ;
+				scriptToImport.push(scripts[name]);
+			};
 		}
-
-		var is_import = true ;
-		for (var i in scripts){
-			addScriptToDom (scripts[i], function (){
-				for (var i in scripts_imported){
-					if (!scripts_imported.scripts[i]) is_import = false;
-					if (is_import) callback();
-				}
-			})
-		}
-
+		if(scriptToImport.length >= 1) importRecursive(scriptToImport, 0, callback);
 	}
 
 	function addScriptToDom (name, func) {
-		if(!name) return false;
+		//test name
+
 		var script = document.createElement("script");
-		var src = "http://localhost/JavaScript/LetDooJs/" + files_System.name;
-		console.log(src);
-		script.src = src; script.async = true;
+		var src = "http://localhost/JavaScript/LetDooJs/newLetDooJs/js/letdoojs/" + files_System[name];
+		script.src = src;
 		script.addEventListener('load', function () {
-			scripts_imported.name = true ;
+			scripts_imported[name] = true ;
 			func();
 		},false);
 		DOMhead.appendChild(script);
+	}
+
+	function importRecursive (scripts, i, callback){
+		addScriptToDom (scripts[i], function () {
+			i++;
+			if(scripts[i]) importRecursive(scripts,i, callback)
+			else callback();
+		})
 	}
 }

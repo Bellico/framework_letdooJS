@@ -7,11 +7,18 @@ var LetDooJS = {
 window.onload = function(){
 
 	LetDooJS.App.System= new LetDooJS.Core.System("dev");
-	LetDooJS.App.System.import (["Config", "Environnement", "Router", "Routing"] , function () {
-		LetDooJS.App.Env = new Environnement({
+
+	LetDooJS.App.System.import (["Environnement"],function(){
+		LetDooJS.App.Env = new LetDooJS.Core.Environnement({
 			nameApp : "newLetDooJs"
 		});
-		LetDooJS.App.Router = new Router(Routing) ;
 	})
+
+	LetDooJS.App.System.import (["Router", "Routing"] , function () {
+
+		console.log(LetDooJS.App.Env);
+		//LetDooJS.App.Router = new Router(Routing) ;
+	})
+	console.log(LetDooJS.App.Env);
 
 }
