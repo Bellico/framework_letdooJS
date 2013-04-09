@@ -9,6 +9,8 @@
 			Controller : "letdoojs/scripts/Controller",
 			Router : "letdoojs/scripts/Router",
 			Process : "letdoojs/scripts/Process",
+			Application : "letdoojs/scripts/Application",
+			Listenner : "letdoojs/scripts/Listenner",
 			routing : "app/routing",
 
 			//Librairies Paths
@@ -23,18 +25,16 @@
 		"domReady",
 		"Router",
 		"routing",
-		"jquery"
+		"Application"
 		],
-		function(domReady,Router,routing,$) {
+		function(domReady,Router,routing,App) {
 			domReady(function () {
 			//loadConfig
 			//ImportCSS LETDOOJS
-			var r =new Router(routing);
+			App.router = new Router(routing);
+			App.router.launch();
 
-			console.log("testaction");
-			$("#event").click(function(){
-				r.go("mySecondUrl");
-			})
+
 		 });
 	});
 

@@ -18,11 +18,11 @@ define(["Render"],function(Render){
 			var _this = this ;
 			var template = this.viewsCompiled[view];
 			if(template){
-				var v = Render.generateView(template, params);
+				Render.generateView(template, params);
 			}else{
 				Render.compileView(view,function(template){
 			  		_this.viewsCompiled[view] = template;
-			  		var v = Render.generateView(template, params);
+			  		Render.generateView(template, params);
 				});
 			}
 		}

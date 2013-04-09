@@ -3,7 +3,7 @@ define ([] , function(){
 	return {
 
 		myFisrtUrl : {
-			pattern : "/test", controller : "test" , action : "test" , params : {}
+			pattern : "/", controller : "home" , action : "index" , params : {}
 		},
 
 		mySecondUrl : {

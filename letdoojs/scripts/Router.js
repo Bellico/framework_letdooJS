@@ -4,11 +4,6 @@ define(["Process"] , function(Process){
 
 		var routes = routes;
 
-		var pattern = getPattern();
-        var routeCalled = getRouteByPattern(pattern);
-        var process = new Process(routeCalled);
-
-
         window.onpopstate = function (event) {
         	var _R = event.state;
 	        var process = new Process( _R);
@@ -31,9 +26,15 @@ define(["Process"] , function(Process){
 			return routes[name];
 		}
 
-		Router.prototype.go = function (){
-			var routeCalled = getRouteByName("mySecondUrl");
-	        var process = new Process(routeCalled);
+		Router.prototype.launch = function (nameRoute){
+			var routeCalled = (!nameRoute ) ?
+				getRouteByPattern(getPattern()) :
+				routeCalled = getRouteByName(nameRoute);
+
+			if(!routeCalled ){
+				alert("no route");
+			}
+			new Process(routeCalled);
 		}
 
 	}

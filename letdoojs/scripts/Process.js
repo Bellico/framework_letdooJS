@@ -6,7 +6,7 @@ define(["Controller"] , function(Controller){
 
 		require (["src/controllers/" + nameController] , function () {
 
-			var controllerCalled = Controller.getController(_R.controller);
+			var controllerCalled = Controller.getController(nameController);
 			var actionCalled = _R.action +"Action" ;
 			history.pushState( _R , _R.controller + "-" + actionCalled, Environnement.getWebPath() + _R.pattern);
 			controllerCalled[actionCalled]();

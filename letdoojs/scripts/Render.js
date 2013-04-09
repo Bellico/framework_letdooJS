@@ -1,4 +1,4 @@
-define(["Mustache"] , function (Mustache) {
+define(["Mustache","jquery","Listenner"] , function (Mustache, $, Listenner) {
 
 	var Render = {
 
@@ -9,7 +9,9 @@ define(["Mustache"] , function (Mustache) {
 		},
 
 		generateView : function (template, params){
-			return template(params);
+			var v = template(params);
+			$("body").html(v);
+			Listenner.listen("body");
 		}
 
 	}
