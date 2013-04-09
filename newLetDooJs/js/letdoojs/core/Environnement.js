@@ -1,19 +1,17 @@
-define([] , function($){
+LetDooJS.Core.Environnement = function (params){
 
-	var Environnement = function (){
-
- 		var env = null ,
-	 		path =  "http://localhost/JavaScript/LetDooJs/" ,
+	 	var	path =  "http://" ,
 	 		folderWeb = "web";
 
-	 	(function initEnvironnement () {
-	 		setPath();
- 		})()
+	 	folderWeb = params.nameApp;
+	 	setPath();
+
 
  		function setPath (){
- 			var regex = new RegExp("(.*)web\/*");
+ 			var regex = new RegExp("(.*)" + folderWeb + "\/*");
  			regex.test(location.href);
-			path = RegExp["$1"];
+			path = RegExp["$1"] + folderWeb;
+			console.log(path);
  		}
 
  		return {
@@ -28,5 +26,4 @@ define([] , function($){
 
  	}
 
-	return Environnement;
 })
