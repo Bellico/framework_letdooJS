@@ -1,7 +1,7 @@
 LetDooJS.Core.Environnement = function (params){
 
-	 var	path =  "http://" ,
-	 	folderWeb = "web";
+	 var path =  "http://" ,
+	 folderWeb = "web";
 
 	 folderWeb = params.nameApp;
 	 setPath();

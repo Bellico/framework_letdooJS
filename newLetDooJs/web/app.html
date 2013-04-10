@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Example App with LetDooJs</title>
+		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script>
+
+		 	var LetDooJS = {
+				App : {} ,
+				Core : {} ,
+				Utils : {},
+				Config : {}
+			};
+
+			LetDooJS.Core.Environnement = function (){
+				 var path =  "http://" ,
+				 	 folderWeb = "web",
+				 	 DOMHead = document.getElementsByTagName("head")[0];
+
+				 setPath();
+
+			 	function setPath (){
+			 		var regex = new RegExp("(.*)" + folderWeb + "\/*");
+			 		regex.test(location.href);
+					path = RegExp["$1"];
+			 	}
+
+			 	LetDooJS.Core.Environnement.prototype.loadSystem = function () {
+					var script = document.createElement("script");
+					script.src = path + "letdoojs/LetDooJs_System.js";
+					DOMHead.appendChild(script);
+			 	}
+
+			 	LetDooJS.Core.Environnement.prototype.getDOMHead = function (){
+			 		return DOMHead
+			 	}
+
+			 	LetDooJS.Core.Environnement.prototype.getPath = function (){
+			 		return path;
+			 	}
+
+			 	LetDooJS.Core.Environnement.prototype.getWebPath = function (){
+			 		return path + folderWeb;
+			 	}
+			 }
+
+			LetDooJS.App.Env = new LetDooJS.Core.Environnement();
+			LetDooJS.App.Env.loadSystem({
+				Mustache : "lib/mustache.js"
+			});
+
+		</script>
+	</head>
+	<body></body>
+</html>

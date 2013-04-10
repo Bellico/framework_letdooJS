@@ -1,0 +1,3 @@
+LetDooJS.Config, {
+	env : "test"
+}
