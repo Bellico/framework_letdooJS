@@ -23,6 +23,8 @@ LetDooJS.Core.Controller = {
 			  	Render.generateView(template, params);
 			});
 		}
-	}
+	},
+
+
 
 }

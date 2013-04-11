@@ -59,7 +59,7 @@ LetDooJS.Core.System = function (lib) {
 }
 
 window.onload = function(){
-	LetDooJS.App.System= new LetDooJS.Core.System();
+	LetDooJS.App.System = new LetDooJS.Core.System();
 	LetDooJS.App.System.import (["Kernel"] , function () {
 		new LetDooJS.App.Kernel();
 	})

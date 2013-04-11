@@ -43,12 +43,40 @@
 			 	LetDooJS.Core.Environnement.prototype.getWebPath = function (){
 			 		return path + folderWeb;
 			 	}
-			 }
+			}
 
 			LetDooJS.App.Env = new LetDooJS.Core.Environnement();
 			LetDooJS.App.Env.loadSystem({
 				Mustache : "lib/mustache.js"
 			});
+
+
+
+			var test = function (){
+
+				this.tab = [];
+				test.tab2 = {};
+
+				test.prototype.lolol = function(){
+					console.log("kvazr");
+				}
+
+				test.prototype.lol = function (f, func) {
+					test.prototype[f]= func;
+				}
+
+
+			}
+
+			var a = new test();
+
+			a.lol ("kk",function(){
+				this.lolol();
+			})
+throw new Error('please use MY.utils.XHR.getInstance()');
+			console.log(a);
+			var hh = "kk";
+			a[hh];
 
 		</script>
 	</head>
