@@ -1,40 +1,45 @@
-LetDooJS.Core.Router = function (routes) {
+(function(){
 
-	var routes = routes;
+LetDooJS.Core = LetDooJS.Core || {};
 
-    window.onpopstate = function (event) {
-        var _R = event.state;
-	    new LetDooJS.Core.Process(_R);
-	}
+	LetDooJS.Core.Router = function (routes) {
 
-	function getPattern () {
-		var url = location.href ;
-		var pattern = url.replace(LetDooJS.App.Env.getWebPath() ,"");
-		return pattern ;
-	}
+		var routes = routes;
 
-	function getRouteByPattern (pattern) {
-		for (var i in routes) {
-			if (routes[i].pattern == pattern) return routes[i];
+	    window.onpopstate = function (event) {
+	        var _R = event.state;
+		    new LetDooJS.Core.Process(_R);
 		}
-		return null;
-	}
 
-	function getRouteByName (name) {
-		return routes[name];
-	}
-
-	LetDooJS.Core.Router.prototype.launch = function (nameRoute){
-		var routeCalled = (!nameRoute ) ?
-			getRouteByPattern(getPattern()) :
-			routeCalled = getRouteByName(nameRoute);
-
-		if(!routeCalled ){
-			alert("no route");
+		function getPattern () {
+			var url = location.href ;
+			var pattern = url.replace(_LS.getWebPath() ,"");
+			return pattern ;
 		}
-		LetDooJS.App.System.import(["Process"], function(){
-			new LetDooJS.Core.Process(routeCalled);
-		});
-	}
 
-}
+		function getRouteByPattern (pattern) {
+			for (var i in routes) {
+				if (routes[i].pattern == pattern) return routes[i];
+			}
+			return null;
+		}
+
+		function getRouteByName (name) {
+			return routes[name];
+		}
+
+		LetDooJS.Core.Router.prototype.launch = function (nameRoute){
+			var routeCalled = (!nameRoute ) ?
+				getRouteByPattern(getPattern()) :
+				routeCalled = getRouteByName(nameRoute);
+
+			if(!routeCalled ){
+				alert("no route");
+			}
+			LetDooJS.App.System.import(["Process"], function(){
+				new LetDooJS.Core.Process(routeCalled);
+			});
+		}
+
+	}
+})()

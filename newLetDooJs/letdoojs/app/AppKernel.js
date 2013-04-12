@@ -1,8 +1,12 @@
-LetDooJS.App.Kernel = function (){
+(function(){
 
-	LetDooJS.App.System.import (["Router", "Routing","Config", "Functions"] , function () {
-			LetDooJS.App.Router = new LetDooJS.Core.Router(LetDooJS.App.Routing) ;
-			LetDooJS.App.Router.launch();
-	})
-}
+	LetDooJS.App = LetDooJS.App || {};
 
+	LetDooJS.App.Kernel = function (){
+		_LS.import (["Router", "Routing","Config"] , function () {
+			var router = _LS.get("Router",LetDooJS.App.Routing);
+			router.launch();
+		})
+	}
+
+})()
