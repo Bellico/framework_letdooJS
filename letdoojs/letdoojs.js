@@ -19,7 +19,9 @@ var _LS;
                 Router : ["Core", "core/Router.js"],
                 Process : ["Core", "core/Process.js"],
                 Controller : ["Core", "core/Controller.js"],
-                Environnement : ["Core", "core/Environnement.js"],
+                Render : ["Core", "core/Render.js"],
+                HandlingDOM : ["Core", "core/HandlingDOM.js"],
+                Debugger : ["Core", "core/Debugger.js"],
                 Functions : ["Utils", "utils/Functions.js"]
             },
 
@@ -38,6 +40,7 @@ var _LS;
             }
 
             if(scriptToImport.length >= 1) importRecursive(scriptToImport, 0, callback);
+            else callback();
         }
 
         LetDooJS.System.prototype.get = function (name, param, _new) {
@@ -48,6 +51,17 @@ var _LS;
                 return instances[name];
             }else{
                 return instances[name] = new LetDooJS[c[0]][name](param);
+            }
+
+        }
+
+        LetDooJS.System.prototype.getController = function (name) {
+            if(!scripts_imported[name]) new Exception("La class " + name + " n'est pas importée");
+            var c = files_System["Controller"];
+            if(instances[name]){
+                return instances[name];
+            }else{
+                return instances[name] = new LetDooJS[c[0]]["Controller"]();
             }
 
         }
@@ -65,6 +79,7 @@ var _LS;
             script.src = getSrc(name);
             script.addEventListener('load', function () {
                 scripts_imported[name] = true ;
+                //if(instances["Debugger"]) instances["Debugger"].log("couc");
                 func();
             },false);
             console.log(name +" importé");
@@ -80,8 +95,10 @@ var _LS;
         }
 
         function getSrc(name){
-            if(files_System[name][1]) return path + "letdoojs/" + files_System[name][1];
+            if(files_System[name]) return path + "letdoojs/" + files_System[name][1];
             if(name.substr(-10) == "Controller") return path + "src/controllers/" + name + ".js";
+            return path + "lib/" + name + ".js";
+
         }
 
         function setPath (){
@@ -93,9 +110,9 @@ var _LS;
     }
 
     window.onload = function(){
-        _LS = new LetDooJS.System();
-        _LS.import (["Kernel"] , function () {
-            new LetDooJS.App.Kernel();
+        LetDooJS.System = new LetDooJS.System();
+        LetDooJS.System.import (["Kernel"] , function () {
+            LetDooJS.System.get("Kernel");
         })
 
     }

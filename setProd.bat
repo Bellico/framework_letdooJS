@@ -1,1 +1,0 @@
-node lib/r.js -o app/config_app.js > log_build.txt

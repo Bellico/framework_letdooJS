@@ -1,17 +1,18 @@
-define(["Process"] , function(Process){
+(function(){
 
-	var Router = function (routes) {
+	LetDooJS.Core.Router = function (routes) {
 
 		var routes = routes;
+		var process = LetDooJS.System.get("Process");
 
-        window.onpopstate = function (event) {
-        	var _R = event.state;
-	        var process = new Process( _R);
+	    window.onpopstate = function (event) {
+	        var _R = event.state;
+	        if( _R) process.runAction(_R);
 		}
 
 		function getPattern () {
 			var url = location.href ;
-			var pattern = url.replace(Environnement.getWebPath() ,"");
+			var pattern = url.replace(LetDooJS.System.getWebPath() ,"");
 			return pattern ;
 		}
 
@@ -26,19 +27,14 @@ define(["Process"] , function(Process){
 			return routes[name];
 		}
 
-		Router.prototype.launch = function (nameRoute){
+		LetDooJS.Core.Router.prototype.launch = function (nameRoute){
 			var routeCalled = (!nameRoute ) ?
 				getRouteByPattern(getPattern()) :
 				routeCalled = getRouteByName(nameRoute);
-
-			if(!routeCalled ){
-				alert("no route");
+			if(routeCalled ){
+				process.runAction(routeCalled);
 			}
-			new Process(routeCalled);
 		}
 
 	}
-
-	return Router;
-
-})
+})()

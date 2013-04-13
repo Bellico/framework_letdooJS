@@ -5,7 +5,7 @@ LetDooJS.App.Routing = {
 	},
 
 	mySecondUrl : {
-		pattern : "/autre" , controller : "autre" , action : "test" , params : {}
+		pattern : "/autre" , controller : "autre" , action : "index" , params : {}
 	},
 
 }

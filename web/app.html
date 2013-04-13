@@ -3,59 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Example App with LetDooJs</title>
-		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script src="http://localhost/JavaScript/LetDooJs/letdoojs/letdoojs.js"></script>
 	</head>
-	<body>
-			<script>
- 				var Environnement = function (mode){
-
- 					var env = null ,
-	 					path =  "http://localhost/JavaScript/LetDooJs/" ,
-	 					folderWeb = "web";
-
-	 				(function initEnvironnement () {
-						if (env != null) return false;
-						env = mode ;
-						setPath();
- 						if (mode == "dev") return setEnvironnementDev();
- 						if (mode == "prod") return setEnvironnementProd();
- 						return alert ("Env not find ! ");
-
- 					})()
-
-	 				function setEnvironnementDev () {
- 						var script = document.createElement("script");
-						script.type = "text/javascript";
-						script.src = path + "lib/require/require.js";
-						script.setAttribute("data-main" ,path + "app/AppKernel.js");
-						document.body.appendChild(script);
- 					}
-
- 					function setEnvironnementProd () {
- 						alert ("Not implemented  ! ");
- 					}
-
- 					function setPath (){
- 						var regex = new RegExp("(.*)web\/*");
- 						regex.test(location.href);
-						path = RegExp["$1"];
- 					}
-
-
- 					return {
-						getPath : function () {
-							return path;
-						},
-
-						getWebPath : function(){
-							return path + folderWeb;
-						}
- 					}
-
- 				}
-
-				var Environnement = new Environnement("dev");
-
-			</script>
-	</body>
+	<body></body>
 </html>
