@@ -1,4 +1,4 @@
-LetDooJS.Utils.Functions = {
+(function(){
 
 	merge : function (obj1, obj2){
 		for (key in obj2){
@@ -6,4 +6,4 @@ LetDooJS.Utils.Functions = {
 		}
 	}
 
-}
+})()

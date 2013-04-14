@@ -1,5 +1,4 @@
 var LetDooJS = {};
-var _LS;
 
 (function(){
 
@@ -9,7 +8,7 @@ var _LS;
         var DOMhead = document.getElementsByTagName("head")[0],
             path = "http://" ,
             folderWeb = "web";
-
+            environnement = null,
             path = setPath();
 
             files_System = {
@@ -74,16 +73,22 @@ var _LS;
             return path + folderWeb;
         }
 
+        LetDooJS.System.prototype.setEnvironnement = function (env){
+           environnement = env;
+        }
+
         function addScriptToDom (name, func) {
             var script = document.createElement("script");
             script.src = getSrc(name);
             script.addEventListener('load', function () {
                 scripts_imported[name] = true ;
-                //if(instances["Debugger"]) instances["Debugger"].log("couc");
+                if(environnement) instances["Debugger"].profiler(name);
                 func();
             },false);
             console.log(name +" importé");
             DOMhead.appendChild(script);
+            if(environnement) instances["Debugger"].profiler(name);
+
         }
 
         function importRecursive (scripts, i, callback){

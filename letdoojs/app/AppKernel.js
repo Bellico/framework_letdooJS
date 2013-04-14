@@ -3,6 +3,7 @@
 	LetDooJS.App = LetDooJS.App || {};
 	LetDooJS.Core = LetDooJS.Core || {};
 	LetDooJS.Controller = LetDooJS.Controller || {};
+	LetDooJS.Utils = LetDooJS.Utils || {};
 
 	LetDooJS.App.Kernel = function (){
 		LetDooJS.System.import (["Debugger"],function(){
