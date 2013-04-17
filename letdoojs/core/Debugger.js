@@ -23,6 +23,13 @@
 				script[name]["end"] = new Date().getTime();
 			}
 		}
+
+		LetDooJS.Core.Debugger.prototype.display = function (){
+			for (var i in script) {
+				var time = (script[i]["end"] - script[i]["start"] > 0 ) ? script[i]["end"] - script[i]["start"] : 0 ;
+				//document.write(i + " Chargé en " + time  + " ms. <br />")
+			}
+		}
 	}
 
 })()

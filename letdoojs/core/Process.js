@@ -17,6 +17,8 @@
 					controllerCalled[nameController]["init"](controllerCalled);
 
 				controllerCalled[nameController][actionCalled](controllerCalled);
+
+				LetDooJS.System.get("Debugger").display();
 			})
 		}
 

@@ -5,7 +5,7 @@ var LetDooJS = {};
 
     LetDooJS.System = function () {
 
-        var DOMhead = document.getElementsByTagName("head")[0],
+        var DOMhead = document.head,
             path = "http://" ,
             folderWeb = "web";
             environnement = null,
@@ -20,6 +20,8 @@ var LetDooJS = {};
                 Controller : ["Core", "core/Controller.js"],
                 Render : ["Core", "core/Render.js"],
                 HandlingDOM : ["Core", "core/HandlingDOM.js"],
+                GlobalBehaviors : ["Behaviors", "behaviors/GlobalBehaviors.js"],
+                ContextMenu : ["Helpers", "helpers/ContextMenu.js"],
                 Debugger : ["Core", "core/Debugger.js"],
                 Functions : ["Utils", "utils/Functions.js"]
             },
@@ -38,8 +40,19 @@ var LetDooJS = {};
                 };
             }
 
+            callback = (callback) ? callback : function(){};
             if(scriptToImport.length >= 1) importRecursive(scriptToImport, 0, callback);
             else callback();
+        }
+
+        LetDooJS.System.prototype.importCss = function (files) {
+            for (var name in files){
+                var style = document.createElement("link");
+                style.type = "text/css";
+                style.rel = "stylesheet";
+                style.href = path + "letdoojs/css/" + files[name] + ".css";
+                DOMhead.appendChild(style);
+            }
         }
 
         LetDooJS.System.prototype.get = function (name, param, _new) {
@@ -85,7 +98,6 @@ var LetDooJS = {};
                 if(environnement) instances["Debugger"].profiler(name);
                 func();
             },false);
-            console.log(name +" importé");
             DOMhead.appendChild(script);
             if(environnement) instances["Debugger"].profiler(name);
 
