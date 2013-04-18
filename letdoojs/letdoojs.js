@@ -9,37 +9,21 @@ var LetDooJS = {};
             path = "http://" ,
             folderWeb = "web";
             environnement = null,
-            path = setPath();
-
-            files_System = {
-                Kernel : ["App", "app/AppKernel.js"],
-                Routing : ["App", "app/Routing.js"],
-                Config : ["App", "app/Config.js"],
-                Router : ["Core", "core/Router.js"],
-                Process : ["Core", "core/Process.js"],
-                Controller : ["Core", "core/Controller.js"],
-                Render : ["Core", "core/Render.js"],
-                HandlingDOM : ["Core", "core/HandlingDOM.js"],
-                GlobalBehaviors : ["Behaviors", "behaviors/GlobalBehaviors.js"],
-                ContextMenu : ["Helpers", "helpers/ContextMenu.js"],
-                Debugger : ["Core", "core/Debugger.js"],
-                Functions : ["Utils", "utils/Functions.js"]
-            },
-
             scripts_imported = [],
-            instances = [];
+            instances = [],
+            path = setPath();
 
         LetDooJS.System.prototype.import = function (files, callback) {
             var scriptToImport = [];
 
             for (var name in files){
-                _F = files[name];
-                if(typeof scripts_imported[_F] == "undefined") {
-                    scripts_imported[_F] = false ;
-                    scriptToImport.push(_F);
+                file = files[name];
+                var name = setOptionScript(file);
+                if(typeof scripts_imported[name]["loaded"] == "undefined") {
+                    scripts_imported[name]["loaded"] = false;
+                    scriptToImport.push(name);
                 };
             }
-
             callback = (callback) ? callback : function(){};
             if(scriptToImport.length >= 1) importRecursive(scriptToImport, 0, callback);
             else callback();
@@ -56,26 +40,34 @@ var LetDooJS = {};
         }
 
         LetDooJS.System.prototype.get = function (name, param, _new) {
-            if(!scripts_imported[name]) new Exception("La class " + name + " n'est pas importée");
-            var c = files_System[name];
-            if(_new) return new LetDooJS[c[0]][name];
-            if(instances[name]){
-                return instances[name];
+            checkScript(name);
+            var namespace = scripts_imported[name]["package"];
+            if (typeof LetDooJS[namespace][name] == "function"){
+                if(_new) return new LetDooJS[namespace][name];
+                if(instances[name]){
+                    return instances[name];
+                }else{
+                    return instances[name] = new LetDooJS[namespace][name](param);
+                }
             }else{
-                return instances[name] = new LetDooJS[c[0]][name](param);
+                return LetDooJS[namespace][name];
             }
+        }
 
+        LetDooJS.System.prototype.getObject = function (name) {
+            checkScript(name);
+            var namespace = scripts_imported[name]["package"];
+            return LetDooJS[namespace][name];
         }
 
         LetDooJS.System.prototype.getController = function (name) {
-            if(!scripts_imported[name]) new Exception("La class " + name + " n'est pas importée");
-            var c = files_System["Controller"];
+            checkScript(name);
+            var namespace = scripts_imported["Controller"]["package"];
             if(instances[name]){
                 return instances[name];
             }else{
-                return instances[name] = new LetDooJS[c[0]]["Controller"]();
+                return instances[name] = new LetDooJS[namespace]["Controller"]();
             }
-
         }
 
         LetDooJS.System.prototype.getPath = function (){
@@ -92,15 +84,14 @@ var LetDooJS = {};
 
         function addScriptToDom (name, func) {
             var script = document.createElement("script");
-            script.src = getSrc(name);
+            script.src = scripts_imported[name]["src"]
             script.addEventListener('load', function () {
-                scripts_imported[name] = true ;
+                scripts_imported[name]["loaded"] = true;
                 if(environnement) instances["Debugger"].profiler(name);
                 func();
             },false);
             DOMhead.appendChild(script);
             if(environnement) instances["Debugger"].profiler(name);
-
         }
 
         function importRecursive (scripts, i, callback){
@@ -111,11 +102,33 @@ var LetDooJS = {};
             })
         }
 
-        function getSrc(name){
-            if(files_System[name]) return path + "letdoojs/" + files_System[name][1];
-            if(name.substr(-10) == "Controller") return path + "src/controllers/" + name + ".js";
-            return path + "lib/" + name + ".js";
+        function setOptionScript (fileName){
+            var opt = fileName.split("-");
+            if(!scripts_imported[opt[0]]) {
+                if(!opt[1]) opt[1] = "Core";
+                scripts_imported[opt[0]] = [];
+                scripts_imported[opt[0]]["package"] = opt[1][0].toUpperCase() + opt[1].substring(1)
+                scripts_imported[opt[0]]["src"] = getSrc(opt);
+            }
+            return opt[0];
+        }
 
+        function checkScript (name){
+            if(!scripts_imported[name])
+                throw ("La fichier " + name + " n'est pas importé");
+
+            if(!scripts_imported[name]["loaded"])
+                 throw ("La fichier " + name + " n'est pas encore chargé");
+        }
+
+        function getSrc(opt){
+            opt[1] = opt[1].toLowerCase()
+            if(opt[1] == "controller")
+                return path + "src/controllers/" +  opt[0] + ".js";
+            if(opt[1] == "lib")
+                return path + "lib/" +  opt[0] + ".js";
+
+            return path + "letdoojs/" + opt[1] + "/" +  opt[0] + ".js";
         }
 
         function setPath (){
@@ -128,10 +141,9 @@ var LetDooJS = {};
 
     window.onload = function(){
         LetDooJS.System = new LetDooJS.System();
-        LetDooJS.System.import (["Kernel"] , function () {
+        LetDooJS.System.import (["Kernel-App"] , function () {
             LetDooJS.System.get("Kernel");
         })
-
     }
 
 })()

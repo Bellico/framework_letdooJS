@@ -6,7 +6,7 @@
 		LetDooJS.Core.Process.prototype.runAction = function (_R) {
 			var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
 
-			LetDooJS.System.import([nameController] , function () {
+			LetDooJS.System.import([nameController+"-Controller"] , function () {
 				var controllerCalled = LetDooJS.System.getController(nameController);
 				controllerCalled.bindController(nameController, LetDooJS.Controller[nameController]);
 
@@ -18,7 +18,7 @@
 
 				controllerCalled[nameController][actionCalled](controllerCalled);
 
-				LetDooJS.System.get("Debugger").display();
+				//LetDooJS.System.get("Debugger").display();
 			})
 		}
 

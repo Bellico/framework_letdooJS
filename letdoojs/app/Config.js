@@ -1,3 +1,3 @@
-LetDooJS.Config, {
+LetDooJS.Config = {
 	env : "test"
 }
