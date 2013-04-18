@@ -16,7 +16,12 @@
 				if(controllerCalled[nameController]["init"])
 					controllerCalled[nameController]["init"](controllerCalled);
 
-				controllerCalled[nameController][actionCalled](controllerCalled);
+				if(controllerCalled[nameController]["require"]){
+					LetDooJS.System.import(controllerCalled[nameController]["require"], function () {
+						controllerCalled[nameController][actionCalled](controllerCalled);
+					})
+				}else
+					controllerCalled[nameController][actionCalled](controllerCalled);
 
 				//LetDooJS.System.get("Debugger").display();
 			})

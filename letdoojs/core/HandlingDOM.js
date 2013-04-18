@@ -12,7 +12,8 @@
 
 			document.addEventListener("contextmenu",function(e){
 				console.log(e);
-				e.preventDefault()
+				e.preventDefault();
+				//e.stopPropagation();
 
 			},false)
 			/*document.addEventListener("mousedown",function(e){e.preventDefault();
