@@ -12,11 +12,12 @@
 
 
 
-			//$scope.render("nn",{vv : "Ok!"});
-			document.contextMenu();
+			$scope.render("index.html",{vv : "Ok!"});
+			//document.contextMenu();
 			var router = LetDooJS.System.get("Router",LetDooJS.App.Routing);
-			var x = LetDooJS.System.get("XMLHttpRequest");
-			console.log(x);
+
+
+
 			//router.launch("mySecondUrl");
 		}
 	}

@@ -7,7 +7,7 @@
 
 		this.addEventListener("contextmenu",function(e){
 			e.preventDefault();
-			e.stopPropagation();
+			//e.stopPropagation();
 			console.log(e);
 			console.log(DOMContextMenu);
 			DOMContextMenu.style.top  = e.clientY+"px";
@@ -15,9 +15,9 @@
 
 		},false)
 
-		document.body.addEventListener("mousedown", function(e){
+		/*document.body.addEventListener("mousedown", function(e){
 			DOMContextMenu.style.display = "none";
-		},false)
+		},false)*/
 	}
 
 })()

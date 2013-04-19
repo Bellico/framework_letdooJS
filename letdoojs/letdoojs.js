@@ -13,6 +13,8 @@ var LetDooJS = {};
             instances = [],
             path = setPath();
 
+        LetDooJS.System.test = "ok";
+
         LetDooJS.System.prototype.import = function (files, callback) {
             var scriptToImport = [];
 

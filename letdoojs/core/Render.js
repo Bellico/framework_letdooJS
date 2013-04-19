@@ -5,29 +5,30 @@
 		var viewCompiled = [];
 
 		LetDooJS.Core.Render.prototype.compileView = function (nameView,callback) {
-			var template = "<h1> {{vv}} <h1>";
-			if (!viewCompiled[nameView]){
+			var template = localStorage["LDS_VIEW_" + nameView]
+			if (template){
 				viewCompiled[nameView] = Mustache.compile(template);
-				callback();
-			}else
-				callback();
-		}
-
-		LetDooJS.Core.Render.prototype.generateView = function (nameView, params, callback){
-			this.compileView(nameView, function(){
-				var v = viewCompiled[nameView](params);
-				callback(v);
-			})
-
+				callback (viewCompiled[nameView]);
+			} else{
+				var request = LetDooJS.System.get("XMLHttpRequest");
+				request.getTemplate(nameView, null, function (template){
+					localStorage["LDS_VIEW_" + nameView] = template;
+					viewCompiled[nameView] = Mustache.compile(template);
+					callback (viewCompiled[nameView]);
+				});
+			}
 		}
 
 		LetDooJS.Core.Render.prototype.displayView = function (nameView, params, callback){
-			this.generateView(nameView, params, function(v){
-				document.body.innerHTML = v;
-				//listen
-				if(callback) callback();
-			})
-
+			if(viewCompiled[nameView]) {
+				var view = viewCompiled[nameView](params);
+				document.body.innerHTML = view;
+			} else {
+				this.compileView(nameView, function (compile){
+					var view = viewCompiled[nameView](params);
+					document.body.innerHTML = view;
+				})
+			}
 		}
 	}
 

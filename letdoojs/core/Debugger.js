@@ -1,8 +1,6 @@
 (function(){
 
-	LetDooJS.Core.Debugger = function(env) {
-
-		LetDooJS.System.setEnvironnement(env);
+	LetDooJS.Core.Debugger = function() {
 
 		var script = [];
 

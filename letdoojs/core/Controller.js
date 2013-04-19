@@ -8,7 +8,7 @@
 
 		self.prototype.render = function (nameView, params){
 			var render = LetDooJS.System.get("Render");
-			render.displayView("ok", params)
+			render.displayView(nameView, params)
 		}
 
 	}

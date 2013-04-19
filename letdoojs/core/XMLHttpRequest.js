@@ -3,22 +3,23 @@
 	LetDooJS.Core.XMLHttpRequest = function () {
 
 		var xhr = new XMLHttpRequest();
+
 		console.log(xhr);
-
-		LetDooJS.Core.XMLHttpRequest.prototype.request = function (){
+		LetDooJS.Core.XMLHttpRequest.prototype.request = function (methode, url){
+			xhr.open("GET", url, true);
+			xhr.send(null);
 
 		}
-/*
-function ajax(url,func){
-	var xhr = getXMLHttpRequest();
-	xhr.open("GET",url_server+url, true);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-			func(xhr.responseText);
-		}
-	};
-	xhr.send(null);*/
 
+		LetDooJS.Core.XMLHttpRequest.prototype.getTemplate = function (name, package, callback){
+			var url = LetDooJS.System.getPath() + ((package) ? package : "src" ) + "/views/" + name ;
+			this.request("GET", url);
+			xhr.onload = function (){
+				if (xhr.status == 200)
+					callback(xhr.responseXML)
+			}
+		}
 
 	}
+
 })()
