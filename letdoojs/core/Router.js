@@ -33,6 +33,8 @@
 				routeCalled = getRouteByName(nameRoute);
 			if(routeCalled ){
 				process.runAction(routeCalled);
+			}else{
+				throw "Route Not Find !";
 			}
 		}
 

@@ -1,4 +1,5 @@
 LetDooJS.Config = {
-	env : "test",
-	css_to_import : ["resetCssYui","behaviors"]
+	env : "dev",
+	css_to_import : ["resetCssYui","behaviors"],
+	your_css : ["style","bootstrap"]
 }

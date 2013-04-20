@@ -5,28 +5,24 @@
 		var DOMbody = document.body;
 
 		LetDooJS.Core.HandlingDOM.prototype.append = function (src, target) {
-
+			var div = (target) ? target : document.createElement("div");
+			div.innerHTML = src;
+			DOMbody.appendChild(div);
 		}
 
-		LetDooJS.Core.HandlingDOM.prototype.rightClick = function (){
-
-			document.addEventListener("contextmenu",function(e){
-				console.log(e);
-				e.preventDefault();
-				//e.stopPropagation();
-
-			},false)
-			/*document.addEventListener("mousedown",function(e){e.preventDefault();
-				e.stopPropagation();
-				console.log(window.event);
-				console.log(e.which)},false);*/
-
+		LetDooJS.Core.HandlingDOM.prototype.write = function (txt, target) {
+			if(!target) target = DOMbody;
+			var div = document.createElement("div");
+			div.textContent = txt ;
+			target.appendChild(div);
 		}
 
-
-
+		LetDooJS.Core.HandlingDOM.prototype.create = function (params){
+			var div = document.createElement(params.tag);
+			if (params.class) div.setAttribute("class",params.class);
+			return div;
+		}
 	}
-
 
 
 })()

@@ -1,0 +1,177 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-attachment: fixed;
+	background-size: 100%;
+	margin-top: 85px
+}
+
+header, footer{
+	background: #252525;
+	height: 65px;
+	color: #FFF;
+	width: 100%;
+	box-shadow: 0px 3px 7px #000;
+	position: fixed;
+	font-family: "Helvetica";
+	top: 0;
+	z-index:100;
+}
+
+header a:hover{
+	color: #FFF
+}
+
+footer{
+	box-shadow: 0px -3px 7px #000;
+	position: fixed;
+	bottom: 0;
+	height: 65px;
+	padding: 10px
+}
+
+header #title{
+	position: relative;
+	width: 135px;
+}
+
+header #title .home{
+	line-height: 65px;
+	font-size: 20px;
+	margin-left: 20px;
+	width: 130px;
+	float: left;
+	height: 100%;
+	text-align: center;
+	/*-webkit-transition: box-shadow 0.2s ease, height 3s linear;*/
+}
+
+header #title:hover .home{
+	box-shadow: 5px 0px 7px #000;
+	border: 2px solid #000;
+	text-decoration: none;
+}
+
+header nav ul {
+	margin: 0;
+	font-size: 15px;
+}
+
+header nav{
+	float: right;
+	margin-right: 20px;
+	line-height: 65px;
+	font-weight: bold;
+}
+
+header nav ul li {
+	margin: 0 20px;
+	display: inline;
+}
+
+header a{
+	color: #FFF;
+}
+
+#menu-responsive{
+	position: absolute;
+	width: 135px;
+	left: 35px;
+	top: 66px;
+	box-shadow: 5px 5px 2px #000;
+	display: none
+}
+
+#menu-responsive ul{
+	list-style-type: none;
+	margin: 0
+}
+
+#menu-responsive li{
+
+	height: 65px;
+	line-height: 65px;
+	font-size: 20px;
+	text-align: center;
+	background: #252525;
+}
+
+#menu-responsive li:hover{
+	background: #444;
+}
+
+.intro{
+	font-family: "Helvetica";
+	text-shadow: 2px 2px 2px #000;
+	font-size: 48px;
+	font-weight: 300;
+	margin: 200px auto;
+	background: none;
+	text-align: center;
+	color: #FFF;
+	line-height: normal;
+}
+
+section.article{
+	height: 600px;
+	min-width: 1000px;
+	width: 100%;
+	background: #FFF;
+	margin-bottom: 440px;
+	box-shadow: 0px 0px 15px #000;
+}
+
+.wrap{
+	width:1000px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+section.content{
+	background: #FFF;
+
+	min-width: 1000px;
+	margin: 20px auto;
+	box-shadow: 0px 0px 15px #000;
+	width: 100%
+}
+
+.scrollable{
+	text-align: justify;
+	padding-right: 10px
+}
+
+
+.important{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.warning{
+	font-weight: bold;
+}
+
+.progress{
+	height:30px;
+	line-height: 30px;
+}
+
+table.vertical td:first-child{
+	font-weight: bold;
+}
+
+@media screen and (max-width: 720px) {
+  nav .menu-list {
+    display:none;
+  }
+
+  #title:hover #menu-responsive{
+	display: block;
+  }
+
+  .wrap{
+  	width:700px
+  }
+}

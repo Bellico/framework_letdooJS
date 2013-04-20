@@ -2,8 +2,9 @@ var LetDooJS = {};
 
 (function(){
 
-
     LetDooJS.System = function () {
+
+        const SCRIPT_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Mustache-Lib"];
 
         var DOMhead = document.head,
             path = "http://" ,
@@ -13,11 +14,12 @@ var LetDooJS = {};
             instances = [],
             path = setPath();
 
-        LetDooJS.System.test = "ok";
+        LetDooJS.System.prototype.loadCore = function (callback) {
+            this.import ( SCRIPT_CORE , callback );
+        }
 
         LetDooJS.System.prototype.import = function (files, callback) {
             var scriptToImport = [];
-
             for (var name in files){
                 file = files[name];
                 var name = setOptionScript(file);
@@ -31,12 +33,13 @@ var LetDooJS = {};
             else callback();
         }
 
-        LetDooJS.System.prototype.importCss = function (files) {
+        LetDooJS.System.prototype.importCss = function (files,web) {
+            var href = (web) ? path + "web/css/" : path + "letdoojs/css/" ;
             for (var name in files){
                 var style = document.createElement("link");
                 style.type = "text/css";
                 style.rel = "stylesheet";
-                style.href = path + "letdoojs/css/" + files[name] + ".css";
+                style.href = href + files[name] + ".css";
                 DOMhead.appendChild(style);
             }
         }
@@ -89,11 +92,11 @@ var LetDooJS = {};
             script.src = scripts_imported[name]["src"]
             script.addEventListener('load', function () {
                 scripts_imported[name]["loaded"] = true;
-                if(environnement) instances["Debugger"].profiler(name);
+                if(environnement) instances["Profiler"].profiler(name);
                 func();
             },false);
             DOMhead.appendChild(script);
-            if(environnement) instances["Debugger"].profiler(name);
+            if(environnement) instances["Profiler"].profiler(name);
         }
 
         function importRecursive (scripts, i, callback){
@@ -117,10 +120,10 @@ var LetDooJS = {};
 
         function checkScript (name){
             if(!scripts_imported[name])
-                throw ("La fichier " + name + " n'est pas importé");
+                throw ("File " + name + "is not imported");
 
             if(!scripts_imported[name]["loaded"])
-                 throw ("La fichier " + name + " n'est pas encore chargé");
+                throw ("File " + name + " is not loaded yet");
         }
 
         function getSrc(opt){

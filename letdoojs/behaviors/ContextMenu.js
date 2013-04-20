@@ -2,22 +2,38 @@
 
 	Node.prototype.contextMenu = function (){
 
-		var DOMContextMenu = document.querySelector(".contextMenu");
+		const CLASS_NAME = "LDS_contextMenu";
+		var DOM = LetDooJS.System.get("HandlingDOM");
+
+		var DOMContextMenu = DOM.create({tag : "div" , class : CLASS_NAME});
+		console.log(DOMContextMenu);
 		DOMContextMenu.style.position = "absolute";
+		DOMContextMenu.style.display = "none";
+		document.body.appendChild(DOMContextMenu);
 
-		this.addEventListener("contextmenu",function(e){
-			e.preventDefault();
-			//e.stopPropagation();
-			console.log(e);
-			console.log(DOMContextMenu);
-			DOMContextMenu.style.top  = e.clientY+"px";
-			DOMContextMenu.style.left  = e.clientX+"px";
+		this.addEventListener("contextmenu",function(event){
+			event.preventDefault();
+			hideAllMenu();
+			DOMContextMenu.style.top  = event.clientY+"px";
+			DOMContextMenu.style.left  = event.clientX+"px";
+			DOMContextMenu.style.display = "block";
+		},false);
 
-		},false)
+		DOMContextMenu.addEventListener("mousedown",function (event){
+			event.stopPropagation();
+		},false);
 
-		/*document.body.addEventListener("mousedown", function(e){
-			DOMContextMenu.style.display = "none";
-		},false)*/
+		document.addEventListener("mousedown", function(event){
+			if (event.which == 1)
+				DOMContextMenu.style.display = "none";
+		},false);
+
+		function hideAllMenu(){
+			var divs = document.querySelectorAll(CLASS_NAME);
+			for (var i in divs){
+				if (divs[i].nodeType == 1) divs[i].style.display = "none";
+			}
+		}
 	}
 
 })()

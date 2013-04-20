@@ -3,22 +3,20 @@
 	LetDooJS.App = {};
 	LetDooJS.Core = {};
 	LetDooJS.Controller = {};
+	LetDooJS.Components = {};
 	LetDooJS.Behaviors = {};
 	LetDooJS.Helpers = {};
 	LetDooJS.Utils = {};
 
 	LetDooJS.App.Kernel = function (){
-		LetDooJS.System.import (["Config-App","Debugger"],function(){
-			var debug = LetDooJS.System.get("Debugger", LetDooJS.Config.env);
-
+		LetDooJS.System.import (["Config-App","Profiler"],function(){
+			LetDooJS.System.get("Profiler");
 			LetDooJS.System.setEnvironnement(LetDooJS.Config.env);
-
 			LetDooJS.System.importCss(LetDooJS.Config.css_to_import);
+			LetDooJS.System.importCss(LetDooJS.Config.your_css, true);
 		})
 
-		LetDooJS.System.import (["DevFunctions-Utils"]);
-
-		LetDooJS.System.import (["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest", "Mustache-Lib"] , function () {
+		LetDooJS.System.loadCore (function () {
 			var router = LetDooJS.System.get("Router",LetDooJS.App.Routing);
 			router.launch();
 		})
