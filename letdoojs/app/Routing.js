@@ -1,11 +1,21 @@
 LetDooJS.App.Routing = {
 
+	/*
+	uniq_name : {
+		pattern : "/", process : "controller::action" , params : {}
+	},
+	*/
+
+	HOME : {
+		process : "home::index"
+	},
+
 	myFisrtUrl : {
-		pattern : "/", controller : "home" , action : "index" , params : {}
+		pattern : "/", process : "home::index" , params : {}
 	},
 
 	mySecondUrl : {
-		pattern : "/autre" , controller : "autre" , action : "index" , params : {}
+		pattern : "/autre" , process : "autre::index" , params : {}
 	},
 
 }

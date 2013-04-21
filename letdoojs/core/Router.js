@@ -5,6 +5,10 @@
 		var routes = routes;
 		var process = LetDooJS.System.get("Process");
 
+		if(routes["HOME"]){
+			process.runAction(splitRoute(routes["HOME"]));
+		}
+
 	    window.onpopstate = function (event) {
 	        var _R = event.state;
 	        if( _R) process.runAction(_R);
@@ -18,13 +22,20 @@
 
 		function getRouteByPattern (pattern) {
 			for (var i in routes) {
-				if (routes[i].pattern == pattern) return routes[i];
+				if (routes[i].pattern == pattern) return splitRoute(routes[i]);
 			}
 			return null;
 		}
 
 		function getRouteByName (name) {
-			return routes[name];
+			return splitRoute(routes[name]);
+		}
+
+		function splitRoute(R){
+			CtrlAct = R.process.split("::");
+			R.controller = CtrlAct[0];
+			R.action = CtrlAct[1];
+			return R;
 		}
 
 		LetDooJS.Core.Router.prototype.launch = function (nameRoute){

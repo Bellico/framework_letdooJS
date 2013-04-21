@@ -12,7 +12,7 @@
 
 
 
-			//$scope.render("layout.html",{ok : "Ok!"});
+			$scope.render("homeTemplate.html",{ok : "Ok!"});
 
 
 		}

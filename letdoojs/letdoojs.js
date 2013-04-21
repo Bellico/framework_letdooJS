@@ -120,10 +120,10 @@ var LetDooJS = {};
 
         function checkScript (name){
             if(!scripts_imported[name])
-                throw ("File " + name + "is not imported");
+                throw ("Script " + name + "is not imported");
 
             if(!scripts_imported[name]["loaded"])
-                throw ("File " + name + " is not loaded yet");
+                throw ("Script " + name + " is not loaded yet");
         }
 
         function getSrc(opt){
