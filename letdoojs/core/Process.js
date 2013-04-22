@@ -11,6 +11,12 @@
 			if(routeWaiting.length == 1) processAction(_R);
 		}
 
+		LetDooJS.Core.Controller.callbackRender = function(){
+			routeWaiting.shift();
+			LetDooJS.Core.Controller.renderApplied = false;
+			if(routeWaiting[0]) processAction(routeWaiting[0]);
+		}
+
 		function processAction (_R) {
 
 			var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
@@ -40,10 +46,8 @@
 			if (!controller[nameController][actionCalled]) throw "Action " + nameController + "::" + actionCalled + " not exist";
 			controller[nameController][actionCalled](controller);
 
-			routeWaiting.shift();
-			if(routeWaiting[0]) processAction(routeWaiting[0]);
+			if (!LetDooJS.Core.Controller.renderApplied) LetDooJS.Core.Controller.callbackRender();
 		}
-
 	}
 
 })()

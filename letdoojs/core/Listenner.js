@@ -14,11 +14,11 @@
 		}
 
 		function bindAction (item, e){
-
 			if (item.nodeType != 1) return false;
 
 			e = (e) ? e : "click";
-			item.addEventListener (e,function(){
+			item.addEventListener (e,function(event){
+				event.preventDefault();
 				var name = item.getAttribute("data-route");
 				router.launch(name);
 			},false)

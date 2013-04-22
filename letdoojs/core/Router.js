@@ -45,7 +45,7 @@
 			if(routeCalled ){
 				process.runAction(routeCalled);
 			}else{
-				throw "Route Not Find !";
+				throw "Route Not Found !";
 			}
 		}
 

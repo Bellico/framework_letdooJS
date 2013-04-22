@@ -15,6 +15,9 @@
 			xhr.onload = function (){
 				if (xhr.status == 200)
 					callback(xhr.responseText)
+				else{
+					throw "Template " + url + " not found";
+				}
 			}
 		}
 
