@@ -1,18 +1,30 @@
-define(["Application", "jquery"] , function(App, $){
+(function(){
 
-	var Listenner = {
+	LetDooJS.Core.Listenner = function(){
 
-		listen : function (element) {
+		var router = LetDooJS.System.get("Router");
 
-				$("[data-route]").click(function(){
-
-					var nameRoute = $(this).attr("data-route");
-					App.router.launch(nameRoute);
-				})
+		LetDooJS.Core.Listenner.prototype.listen = function (target) {
+			items = target.querySelectorAll("[data-route]");
+			for (var i in items){
+				bindAction(items[i]);
+			}
 
 
 		}
+
+		function bindAction (item, e){
+
+			if (item.nodeType != 1) return false;
+
+			e = (e) ? e : "click";
+			item.addEventListener (e,function(){
+				var name = item.getAttribute("data-route");
+				router.launch(name);
+			},false)
+
+		}
+
 	}
 
-	return Listenner;
-})
+})()

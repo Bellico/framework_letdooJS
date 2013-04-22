@@ -4,7 +4,7 @@ var LetDooJS = {};
 
     LetDooJS.System = function () {
 
-        const SCRIPT_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Mustache-Lib"];
+        const SCRIPTS_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Listenner", "Mustache-Lib"];
 
         var DOMhead = document.head,
             path = "http://" ,
@@ -15,7 +15,7 @@ var LetDooJS = {};
             path = setPath();
 
         LetDooJS.System.prototype.loadCore = function (callback) {
-            this.import ( SCRIPT_CORE , callback );
+            this.import ( SCRIPTS_CORE , callback );
         }
 
         LetDooJS.System.prototype.import = function (files, callback) {
@@ -40,7 +40,7 @@ var LetDooJS = {};
                 style.type = "text/css";
                 style.rel = "stylesheet";
                 style.href = href + files[name] + ".css";
-                DOMhead.appendChild(style);
+                DOMhead.insertBefore(style, DOMhead.firstChild);
             }
         }
 

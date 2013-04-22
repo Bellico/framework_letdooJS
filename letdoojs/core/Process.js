@@ -2,10 +2,16 @@
 
 	LetDooJS.Core.Process = function (_R) {
 
-		var call = [];
-		//var system de queue d'action
+		var call = [],
+			routeWaiting = [] ;
+
 
 		LetDooJS.Core.Process.prototype.runAction = function (_R) {
+			routeWaiting.push(_R);
+			if(routeWaiting.length == 1) processAction(_R);
+		}
+
+		function processAction (_R) {
 
 			var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
 
@@ -30,8 +36,12 @@
 
 		function callAction(controller, nameController, _R) {
 			var actionCalled = _R.action +"Action" ;
-			history.pushState( _R , _R.controller + "-" + actionCalled, LetDooJS.System.getWebPath() + _R.pattern);
+			if (_R.pattern) history.pushState( _R , _R.controller + "-" + actionCalled, LetDooJS.System.getWebPath() + _R.pattern);
+			if (!controller[nameController][actionCalled]) throw "Action " + nameController + "::" + actionCalled + " not exist";
 			controller[nameController][actionCalled](controller);
+
+			routeWaiting.shift();
+			if(routeWaiting[0]) processAction(routeWaiting[0]);
 		}
 
 	}

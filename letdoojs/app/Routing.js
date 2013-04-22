@@ -11,7 +11,7 @@ LetDooJS.App.Routing = {
 	},
 
 	myFisrtUrl : {
-		pattern : "/", process : "home::index" , params : {}
+		pattern : "/acc", process : "home::acc" , params : {}
 	},
 
 	mySecondUrl : {

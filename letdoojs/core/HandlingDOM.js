@@ -2,11 +2,14 @@
 
 	LetDooJS.Core.HandlingDOM = function(){
 
-		var DOMbody = document.body;
+		var DOMbody = document.body,
+			listenner = LetDooJS.System.get("Listenner");
 
-		LetDooJS.Core.HandlingDOM.prototype.append = function (src, target) {
-			var div = (target) ? target : document.createElement("div");
+		LetDooJS.Core.HandlingDOM.prototype.append = function (src, target, name) {
+			name = (name) ? " " + name : "";
+			var div = (target) ? target : this.create({tag : "div", class : "LDJ-Template" + name});
 			div.innerHTML = src;
+			listenner.listen(div);
 			DOMbody.appendChild(div);
 		}
 
@@ -23,6 +26,5 @@
 			return div;
 		}
 	}
-
 
 })()

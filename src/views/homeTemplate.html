@@ -31,34 +31,8 @@
     <div class="wrap">
 
         <fieldset>
-            <legend> Créer une nouvelle bourse ! </legend>
-            <form class="form-horizontal" method="post" action="{{ path('bourse_newBourse') }}" {{ form_enctype(form) }}>
+            <legend data-route="mySecondUrl"> lien </legend>
 
-                <div class="control-group">
-                    <div class="controls">
-                        {{ form_row(form.name) }}
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <div class="controls">
-                        {{ form_row(form.theme) }}
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <div class="controls">
-                        {{ form_row(form.lieu) }}
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <div class="controls">
-                        {{ form_row(form.description , { 'attr': {'style': 'height: 120px; width: 510px;' , 'placeholder' : 'Donnez une description à votre Bourse'}  }) }}
-                    </div>
-                </div>
-
-                {{ form_rest(form) }}
 
                 <div class="control-group">
                     <div class="controls">
@@ -73,9 +47,9 @@
 
 <section class="content">
     <div class="wrap">
-        <h1>Creer une bourse de Test</h1>
+        <h1 data-route="mySecondUrl">lien 2 </h1>
         <p>
-            Vous pouvez creer rapidement une bourse fictif afin de tester l'application
+            Application
         </p>
         <a href="{{ path('bourse_BourseTest') }}"> <button class="btn btn-inverse" type="button">Creer?</button> </a>
     </div>

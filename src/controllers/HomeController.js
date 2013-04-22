@@ -12,9 +12,13 @@
 
 
 
-			$scope.render("homeTemplate.html",{ok : "Ok!"});
+			$scope.render("homeTemplate",{ok : "Ok!"});
 
 
+		},
+
+		accAction : function (){
+			console.log("acc");
 		}
 	}
 
