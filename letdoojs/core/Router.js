@@ -1,18 +1,18 @@
 (function(){
 
-	LetDooJS.Core.Router = function (routes) {
+	LetDooJS.Core.Router = function (routing) {
 
-		var routes = routes;
+		var routes = routing;
 		var process = LetDooJS.System.get("Process");
 
 		if(routes["HOME"]){
 			process.runAction(splitRoute(routes["HOME"]));
 		}
 
-	    window.onpopstate = function (event) {
+	    window.onpopstate= function (event) {
 	        var _R = event.state;
-	        if( _R) process.runAction(_R);
-		}
+	        if(_R) process.runAction(_R);
+		};
 
 		function getPattern () {
 			var url = location.href ;
@@ -47,7 +47,7 @@
 			}else{
 				throw "Route Not Found !";
 			}
-		}
+		};
 
-	}
-})()
+	};
+})();

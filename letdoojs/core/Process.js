@@ -9,30 +9,30 @@
 		LetDooJS.Core.Process.prototype.runAction = function (_R) {
 			routeWaiting.push(_R);
 			if(routeWaiting.length == 1) processAction(_R);
-		}
+		};
 
 		LetDooJS.Core.Controller.callbackRender = function(){
 			routeWaiting.shift();
 			LetDooJS.Core.Controller.renderApplied = false;
 			if(routeWaiting[0]) processAction(routeWaiting[0]);
-		}
+		};
 
 		function processAction (_R) {
 
 			var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
 
 			if(!call[nameController]){
-				LetDooJS.System.import([nameController+"-Controller"] , function () {
+				LetDooJS.System.load([nameController+"-Controller"] , function () {
 
 					var controllerCalled = LetDooJS.System.getController(nameController);
 					controllerCalled.bindController(nameController, LetDooJS.Controller[nameController]);
 
-					require = ( controllerCalled[nameController]["require"] ) ? controllerCalled[nameController]["require"] : [] ;
-					LetDooJS.System.import(require, function () {
+					var require = ( controllerCalled[nameController]["require"] ) ? controllerCalled[nameController]["require"] : [] ;
+					LetDooJS.System.load(require, function () {
 						if(controllerCalled[nameController]["init"]) controllerCalled[nameController]["init"](controllerCalled);
 						callAction(controllerCalled, nameController, _R);
-					})
-				})
+					});
+				});
 				call[nameController] = true;
 			}else{
 				var controllerCalled = LetDooJS.System.getController(nameController);
@@ -48,6 +48,6 @@
 
 			if (!LetDooJS.Core.Controller.renderApplied) LetDooJS.Core.Controller.callbackRender();
 		}
-	}
+	};
 
-})()
+})();

@@ -5,8 +5,7 @@
 		const CLASS_NAME = "LDS_contextMenu";
 		var DOM = LetDooJS.System.get("HandlingDOM");
 
-		var DOMContextMenu = DOM.create({tag : "div" , class : CLASS_NAME});
-		console.log(DOMContextMenu);
+		var DOMContextMenu = DOM.create({tag : "div" , className : CLASS_NAME});
 		DOMContextMenu.style.position = "absolute";
 		DOMContextMenu.style.display = "none";
 		document.body.appendChild(DOMContextMenu);
@@ -34,6 +33,6 @@
 				if (divs[i].nodeType == 1) divs[i].style.display = "none";
 			}
 		}
-	}
+	};
 
-})()
+})();

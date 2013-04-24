@@ -6,7 +6,7 @@
 		var viewCompiled = [];
 
 		LetDooJS.Core.Render.prototype.compileView = function (nameView,callback) {
-			var template = localStorage[PREFIX + nameView]
+			var template = localStorage[PREFIX + nameView];
 			if (template){
 				viewCompiled[nameView] = Mustache.compile(template);
 				callback (viewCompiled[nameView]);
@@ -18,7 +18,7 @@
 					callback (viewCompiled[nameView]);
 				});
 			}
-		}
+		};
 
 		LetDooJS.Core.Render.prototype.displayView = function (nameView, params, callback){
 			if(!params) params = {};
@@ -32,9 +32,9 @@
 					var view = viewCompiled[nameView](params);
 					DOM.append(view, null, nameView);
 					if (callback) callback();
-				})
+				});
 			}
-		}
-	}
+		};
+	};
 
-})()
+})();

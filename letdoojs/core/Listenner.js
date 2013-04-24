@@ -11,7 +11,7 @@
 			}
 
 
-		}
+		};
 
 		function bindAction (item, e){
 			if (item.nodeType != 1) return false;
@@ -21,10 +21,10 @@
 				event.preventDefault();
 				var name = item.getAttribute("data-route");
 				router.launch(name);
-			},false)
+			},false);
 
 		}
 
-	}
+	};
 
-})()
+})();

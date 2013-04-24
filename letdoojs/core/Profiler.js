@@ -10,7 +10,7 @@
 
 		LetDooJS.Core.Profiler.prototype.log = function (msg, type) {
 			console.log(msg);
-		}
+		};
 
 		LetDooJS.Core.Profiler.prototype.profiler = function (name, type) {
 			if(!script[name]){
@@ -20,7 +20,7 @@
 			}else{
 				script[name]["end"] = new Date().getTime();
 			}
-		}
+		};
 
 		LetDooJS.Core.Profiler.prototype.display = function (){
 			var DOM = LetDooJS.System.get("HandlingDOM");
@@ -28,13 +28,13 @@
 				var time = (script[i]["end"] - script[i]["start"] > 0 ) ? script[i]["end"] - script[i]["start"] : 0 ;
 				DOM.write(i + " Chargé en " + time  + " ms.");
 			}
-		}
+		};
 
 
 		function ModeDEV(){
 			localStorage.clear();
-			LetDooJS.System.import (["DevFunctions-Utils"]);
+			LetDooJS.System.load (["DevFunctions-Utils"]);
 		}
-	}
+	};
 
-})()
+})();
