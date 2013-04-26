@@ -4,11 +4,11 @@ var LetDooJS = {};
 
     LetDooJS.System = function () {
 
-        const SCRIPTS_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Listenner", "Mustache-Lib"];
+        var SCRIPTS_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Listenner", "Mustache-Lib"];
 
         var DOMhead = document.head,
             path = "http://" ,
-            folderWeb = "web";
+            folderWeb = "web",
             environnement = null,
             scripts_imported = [],
             instances = [];
@@ -27,7 +27,7 @@ var LetDooJS = {};
                 if(typeof scripts_imported[name]["loaded"] == "undefined") {
                     scripts_imported[name]["loaded"] = false;
                     scriptToImport.push(name);
-                };
+                }
             }
             callback = (callback) ? callback : function(){};
             if(scriptToImport.length >= 1) importRecursive(scriptToImport, 0, callback);
@@ -49,10 +49,10 @@ var LetDooJS = {};
             checkScript(name);
             var namespace = scripts_imported[name]["namespace"];
             if (typeof LetDooJS[namespace][name] == "function"){
-                if(_new) return new LetDooJS[namespace][name]();
+                if(_new) return new LetDooJS[namespace][name](param);
                 if(instances[name]){
                     return instances[name];
-                }else{
+                }else{;
                     return instances[name] = new LetDooJS[namespace][name](param);
                 }
             }else{
@@ -116,7 +116,7 @@ var LetDooJS = {};
                 scripts_imported[opt[0]] = [];
                 scripts_imported[opt[0]]["namespace"] = opt[1][0].toUpperCase() + opt[1].substring(1);
                 scripts_imported[opt[0]]["src"] = getSrc(opt);
-                if (environnement=="prod") scripts_imported[opt[0]]["loaded"] = true;
+                //if(scripts_imported[opt[0]]["namespace"] != "Lib")  scripts_imported[opt[0]]["loaded"] = true;
             }
             return opt[0];
         }

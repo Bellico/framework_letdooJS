@@ -6,7 +6,7 @@
 		var startApp = new Date().getTime();
 		var endApp = new Date().getTime();
 
-		if(LetDooJS.Config.env == "dev") ModeDEV();
+		if(LetDooJS.App.Config.env == "dev") ModeDEV();
 
 		LetDooJS.Core.Profiler.prototype.log = function (msg, type) {
 			console.log(msg);

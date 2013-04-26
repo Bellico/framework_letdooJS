@@ -20,6 +20,7 @@ use Assetic\Asset\FileAsset;
 
 $js = new AssetCollection(array(
     new FileAsset('/var/www/letdoojs/letdoojs/letdoojs.js'),
+    new FileAsset('/var/www/letdoojs/letdoojs/app/Kernel.js'),
     new FileAsset('/var/www/letdoojs/letdoojs/app/Config.js'),
     new FileAsset('/var/www/letdoojs/letdoojs/app/Routing.js'),
     new GlobAsset('/var/www/letdoojs/letdoojs/core/*'),
@@ -27,7 +28,6 @@ $js = new AssetCollection(array(
     new GlobAsset('/var/www/letdoojs/letdoojs/components/*'),
     new GlobAsset('/var/www/letdoojs/letdoojs/utils/*'),
     new GlobAsset('/var/www/letdoojs/src/controllers/*'),
-    new FileAsset('/var/www/letdoojs/letdoojs/app/Kernel.js'),
 ),array(
  	 //new Yui\JsCompressorFilter('/var/www/letdoojs/lib/yuicompressor.jar'),
 ));

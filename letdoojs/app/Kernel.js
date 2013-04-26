@@ -10,12 +10,12 @@
 
 	LetDooJS.App.Kernel = function (){
 
-		LetDooJS.System.setEnvironnement("prod");
+		//LetDooJS.System.setEnvironnement("prod");
 
 		LetDooJS.System.load (["Config-App","Profiler"],function(){
 			LetDooJS.System.get("Profiler");
-			LetDooJS.System.importCss(LetDooJS.Config.css_to_import);
-			LetDooJS.System.importCss(LetDooJS.Config.your_css, true);
+			LetDooJS.System.importCss(LetDooJS.App.Config.css_to_import);
+			LetDooJS.System.importCss(LetDooJS.App.Config.your_css, true);
 		});
 
 		LetDooJS.System.loadCore (function () {
