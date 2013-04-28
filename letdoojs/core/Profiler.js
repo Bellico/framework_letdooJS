@@ -6,7 +6,7 @@
 		var startApp = new Date().getTime();
 		var endApp = new Date().getTime();
 
-		if(LetDooJS.App.Config.env == "dev") ModeDEV();
+		if(LetDooJS.System.getEnvironnement() == "dev") ModeDEV();
 
 		LetDooJS.Core.Profiler.prototype.log = function (msg, type) {
 			console.log(msg);
@@ -29,7 +29,6 @@
 				DOM.write(i + " Chargé en " + time  + " ms.");
 			}
 		};
-
 
 		function ModeDEV(){
 			localStorage.clear();

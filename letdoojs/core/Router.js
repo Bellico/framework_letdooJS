@@ -5,10 +5,6 @@
 		var routes = routing;
 		var process = LetDooJS.System.get("Process");
 
-		if(routes["HOME"]){
-			process.runAction(splitRoute(routes["HOME"]));
-		}
-
 	    window.onpopstate= function (event) {
 	        var _R = event.state;
 	        if(_R) process.runAction(_R);
@@ -39,10 +35,13 @@
 		}
 
 		LetDooJS.Core.Router.prototype.launch = function (nameRoute){
+			if (typeof nameRoute == "function" || typeof nameRoute == "object")
+				return process.runAction(nameRoute);
+
 			var routeCalled = (!nameRoute ) ?
 				getRouteByPattern(getPattern()) :
 				routeCalled = getRouteByName(nameRoute);
-			if(routeCalled ){
+			if(routeCalled){
 				process.runAction(routeCalled);
 			}else{
 				throw "Route Not Found !";

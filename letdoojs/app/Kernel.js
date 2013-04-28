@@ -10,8 +10,6 @@
 
 	LetDooJS.App.Kernel = function (){
 
-		//LetDooJS.System.setEnvironnement("prod");
-
 		LetDooJS.System.load (["Config-App","Profiler"],function(){
 			LetDooJS.System.get("Profiler");
 			LetDooJS.System.importCss(LetDooJS.App.Config.css_to_import);
@@ -19,7 +17,11 @@
 		});
 
 		LetDooJS.System.loadCore (function () {
-			var router = LetDooJS.System.get("Router",LetDooJS.App.Routing);
+			var routing = LetDooJS.System.get("Routing");
+			var router = LetDooJS.System.get("Router",routing);
+			if(routing["HOME"]){
+				router.launch("HOME");
+			}
 			router.launch();
 		});
 	};

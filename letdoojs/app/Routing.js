@@ -16,6 +16,10 @@ LetDooJS.App.Routing = {
 
 	mySecondUrl : {
 		pattern : "/autre" , process : "autre::index" , params : {}
+	},
+
+	lol : {
+		pattern : "/tt" , process : "LDJ_Dev::index" , params : {}
 	}
 
 };

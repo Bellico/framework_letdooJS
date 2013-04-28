@@ -2,14 +2,14 @@ var LetDooJS = {};
 
 (function(){
 
-    LetDooJS.System = function () {
+    LetDooJS.System = function (env) {
 
         var SCRIPTS_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Listenner", "Mustache-Lib"];
 
         var DOMhead = document.head,
             path = "http://" ,
             folderWeb = "web",
-            environnement = null,
+            environnement = env,
             scripts_imported = [],
             instances = [];
 
@@ -52,7 +52,7 @@ var LetDooJS = {};
                 if(_new) return new LetDooJS[namespace][name](param);
                 if(instances[name]){
                     return instances[name];
-                }else{;
+                }else{
                     return instances[name] = new LetDooJS[namespace][name](param);
                 }
             }else{
@@ -85,8 +85,8 @@ var LetDooJS = {};
             return ( wp.substr(-1) == "/" ) ? wp.slice(0, -1) : wp ;
         };
 
-        LetDooJS.System.prototype.setEnvironnement = function (env){
-           environnement = env;
+        LetDooJS.System.prototype.getEnvironnement = function (){
+           return environnement;
         };
 
         function addScriptToDom (name, func) {
@@ -116,7 +116,9 @@ var LetDooJS = {};
                 scripts_imported[opt[0]] = [];
                 scripts_imported[opt[0]]["namespace"] = opt[1][0].toUpperCase() + opt[1].substring(1);
                 scripts_imported[opt[0]]["src"] = getSrc(opt);
-                //if(scripts_imported[opt[0]]["namespace"] != "Lib")  scripts_imported[opt[0]]["loaded"] = true;
+                if(environnement == "prod"){
+                    if(scripts_imported[opt[0]]["namespace"] != "Lib")  scripts_imported[opt[0]]["loaded"] = true;
+                }
             }
             return opt[0];
         }
@@ -145,13 +147,6 @@ var LetDooJS = {};
             return RegExp["$1"];
         }
 
-    };
-
-    window.onload = function(){
-        LetDooJS.System = new LetDooJS.System();
-        LetDooJS.System.load (["Kernel-App"] , function () {
-            LetDooJS.System.get("Kernel");
-        });
     };
 
 })();

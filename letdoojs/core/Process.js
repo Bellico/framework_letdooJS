@@ -19,6 +19,8 @@
 
 		function processAction (_R) {
 
+			if (typeof _R == "function") return _R();
+
 			var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
 
 			if(!call[nameController]){

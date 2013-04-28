@@ -3,7 +3,17 @@
 	<head>
 		<title>LetDooJs</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script src="http://localhost/letdoojs/letdoojs/letdoojs.js"></script>
+		<!--<script src="http://localhost/JavaScript/letdoojs/web/js/letdoojs.min.js"></script>-->
+		<script src="http://localhost/JavaScript/letdoojs/letdoojs/letdoojs.js"></script>
 	</head>
-	<body></body>
+	<body>
+		<script>
+			window.onload = function(){
+		        LetDooJS.System = new LetDooJS.System("dev");
+		        LetDooJS.System.load (["Kernel-App"] , function () {
+		            LetDooJS.System.get("Kernel");
+		        });
+		    };
+		</script>
+	</body>
 </html>
