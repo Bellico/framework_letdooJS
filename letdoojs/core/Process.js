@@ -19,7 +19,11 @@
 
 		function processAction (_R) {
 
-			if (typeof _R == "function") return _R();
+			if (typeof _R == "function") {
+				_R();
+				LetDooJS.Core.Controller.callbackRender();
+				return false;
+			}
 
 			var nameController = _R.controller[0].toUpperCase() + _R.controller.substring(1) + "Controller";
 

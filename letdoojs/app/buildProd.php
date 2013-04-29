@@ -29,14 +29,14 @@ use Assetic\Asset\FileAsset;
 
 $js = new AssetCollection(array(
     new FileAsset(PATH_LDS.'letdoojs.js'),
-    new FileAsset(PATH_LDS.'app\Kernel.js'),
+    new FileAsset(PATH_LDS.'app/Kernel.js'),
     new FileAsset(PATH_LDS.'app/Config.js'),
-    new FileAsset(PATH_LDS.'app\Routing.js'),
-    new GlobAsset(PATH_LDS.'core\*'),
-    new GlobAsset(PATH_LDS.'behaviors\*'),
-    new GlobAsset(PATH_LDS.'components\*'),
-    new GlobAsset(PATH_LDS.'utils\*'),
-    new GlobAsset(PATH_SRC.'controllers\*'),
+    new FileAsset(PATH_LDS.'app/Routing.js'),
+    new GlobAsset(PATH_LDS.'core/*'),
+    new GlobAsset(PATH_LDS.'behaviors/*'),
+    new GlobAsset(PATH_LDS.'components/*'),
+    new GlobAsset(PATH_LDS.'utils/*'),
+    new GlobAsset(PATH_SRC.'controllers/*'),
 ),array(
  	 new Yui\JsCompressorFilter(PATH_LIB.'yuicompressor.jar'),
 ));

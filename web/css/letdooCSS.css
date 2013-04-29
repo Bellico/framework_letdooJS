@@ -1,0 +1,80 @@
+header, footer{height: 530px; background: #0A1318; color: #FFF; width: 100%}
+footer{height: 35px}
+.nav{background: #1F1F1F; height: 80px;width: 100%}
+.nav .item{display: inline-block; width: 200px; ;height: 100%; line-height:  80px;text-align: center; font-size: 1.6em;margin-left: 30px; cursor: pointer}
+.nav .item:hover{background: #262970}
+
+
+.fixed{position: fixed}
+.top{top: 0}
+.left{left: 0}
+.right{right: 0}
+.bottom{bottom: 0}
+
+p{text-align: justify;margin: 15px 0}
+h1{font-size: 3em}h2{font-size: 2em}h3{font-size: 1.5em}
+
+
+
+.titleHeader, .textHeader{margin: 0 auto;height: 265px;text-align: center;width: 100%}
+.titleHeader h1{padding-top:160px;font-size: 5em}
+.textHeader{font-size: 3em}
+.container{max-width: 90%%; margin: 30px auto}
+.big-text{font-size: 6em}
+.textcenter{margin: 0 auto; text-align: center}
+.center{margin: 0 auto; width: 50%}
+.pullRight{float: right}
+.pullLeft{float: left}
+
+.row, .row-fluid {width: 100%; margin: 30px auto; display: table}
+.row-fluid {width: 100%}
+.row div{margin-left: 30px; display: inline-table}
+.row-fluid div{margin-left: 3%; display: inline-table}
+.row div:first-child, .row-fluid div:first-child {margin-left: 0}
+
+
+
+
+
+
+@media screen and (min-width: 720px) {
+
+.row-fluid .col-1 {width: 3.0833%}
+.row-fluid .col-2 {width: 13.6666%}
+.row-fluid .col-3 {width: 21.9999%}
+.row-fluid .col-4 {width: 30.3333%}
+.row-fluid .col-5 {width: 48.6666%}
+.row-fluid .col-6 {width: 46.9999%}
+.row-fluid .col-7 {width: 55.3333%}
+.row-fluid .col-8 {width: 63.6666%}
+.row-fluid .col-9 {width: 71.9999%}
+.row-fluid .col-10 {width: 80.3333%}
+.row-fluid .col-11 {width: 88.3333%}
+.row-fluid .col-12 {width: 100%}
+}
+
+/* Useless
+.row .col-1 {width: 70px}
+.row .col-2 {width: 170px}
+.row .col-3 {width: 270px}
+.row .col-4 {width: 370px}
+.row .col-5 {width: 470px}
+.row .col-6 {width: 570px}
+.row .col-7 {width: 670px}
+.row .col-8 {width: 770px}
+.row .col-9 {width: 870px}
+.row .col-10 {width: 1000px}
+.row .col-11 {width: 1070px}
+.row .col-12 {width: 1200px}
+
+.w1200{width: 1200px; margin: auto}
+.w1000{width: 1000px; margin: auto}
+.w960{width: 960px; margin: auto}
+*/
+
+
+.row-fluid div{-webkit-transition: all 2s;-moz-transition: all 2s;-o-transition: all 2s;-ms-transition: all 2s;transition: all 0.5s}
+
+@media screen and (max-width: 720px) {
+  .row-fluid div{margin-left: 0;display: block;width: 100%}
+}
