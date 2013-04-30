@@ -1,11 +1,58 @@
-header, footer{height: 530px; background: #0A1318; color: #FFF; width: 100%}
-footer{height: 35px}
-.nav{background: #1F1F1F; height: 80px;width: 100%}
-.nav .item{display: inline-block; width: 200px; ;height: 100%; line-height:  80px;text-align: center; font-size: 1.6em;margin-left: 30px; cursor: pointer}
-.nav .item:hover{background: #262970}
+/*RESET CSS*/
+html{color:#000;background:#FFF}
+body,table,form,h1,h2,h3,h4,h5,h6,p{margin:0;padding: 0;font-family:inherit;font-size:100%;font-weight:normal}
 
+/**Global Tags*/
+p{text-align: justify;margin: 15px 0}
+h1,h2,h3,h4,h5,h6{margin: 15px 0}
+h1{font-size: 3em}h2{font-size: 2.5em}h3{font-size: 2em}h4{font-size: 1.8em}h5{font-size: 1.4em}h6{font-size: 1em}
+
+/*Custom LDJ Tags*/
+.LDJ-header, .LDJ-footer{height: 530px;width: 100%}
+.LDJ-footer{posidtion: absolute;bottom: 0}
+
+
+/*Texte*/
+.title{margin: auto;height: 120px;text-align: center;width: 100%;font-size: 8em;line-height: 120px;padding: 15px 0}
+.text{margin: 15px 0}
+.text.large{font-size: 5em}
+.text.center{text-align: center;margin: auto}
+
+
+/*Bar*/
+.bar{}
+
+/*Block Position*/
+.center-vertical{height: 25%}
+
+
+/*Color Theme - LetDoo*/
+.letdoo-theme .LDJ-header,.letdoo-theme .LDJ-footer{color:#FFF;background: #222222;}
+
+
+
+
+
+
+
+
+
+
+
+
+/*header, footer{height: 530px; background: #222222; color: #FFF; width: 100%}
+header .logo{margin-left: 60px;font-size: 2.8em; line-height: 60px; text-align: center;height: 100%}
+footer{height: 550px}
+.nav{background: #1F1F1F; height: 60px;width: 100%}
+.nav .row-fluid{margin: 0}
+.nav.fixed{background: rgba(0, 0, 0, 0.70)}
+.nav .item{display: inline-block; height: 100%; line-height: 60px; text-align: center; font-size: 1.6em;margin-left: 60px; cursor: pointer}
+.pullRight .item{margin-left: 0;margin-right: 60px}
+.nav .item:hover{background: #262970}
+.nav.left{width: 300px;height: 100%}
 
 .fixed{position: fixed}
+.absolute{position: absolute}
 .top{top: 0}
 .left{left: 0}
 .right{right: 0}
@@ -19,13 +66,13 @@ h1{font-size: 3em}h2{font-size: 2em}h3{font-size: 1.5em}
 .titleHeader, .textHeader{margin: 0 auto;height: 265px;text-align: center;width: 100%}
 .titleHeader h1{padding-top:160px;font-size: 5em}
 .textHeader{font-size: 3em}
-.container{max-width: 90%%; margin: 30px auto}
+.container{width: 1200px; margin: auto}
 .big-text{font-size: 6em}
 .textcenter{margin: 0 auto; text-align: center}
 .center{margin: 0 auto; width: 50%}
 .pullRight{float: right}
 .pullLeft{float: left}
-
+padding-top
 .row, .row-fluid {width: 100%; margin: 30px auto; display: table}
 .row-fluid {width: 100%}
 .row div{margin-left: 30px; display: inline-table}
@@ -53,7 +100,13 @@ h1{font-size: 3em}h2{font-size: 2em}h3{font-size: 1.5em}
 .row-fluid .col-12 {width: 100%}
 }
 
-/* Useless
+
+.block{
+	background: #313237;
+	width: 100%;
+	height: 860px;
+}
+/*
 .row .col-1 {width: 70px}
 .row .col-2 {width: 170px}
 .row .col-3 {width: 270px}
@@ -70,11 +123,151 @@ h1{font-size: 3em}h2{font-size: 2em}h3{font-size: 1.5em}
 .w1200{width: 1200px; margin: auto}
 .w1000{width: 1000px; margin: auto}
 .w960{width: 960px; margin: auto}
-*/
+*//*
 
+.container{-webkit-transition: all 1s;-moz-transition: all 1s;-o-transition: all 1s;-ms-transition: all 1s;transition: all 1s}
 
-.row-fluid div{-webkit-transition: all 2s;-moz-transition: all 2s;-o-transition: all 2s;-ms-transition: all 2s;transition: all 0.5s}
+@media screen and (max-width: 1250px) {
+	.container{max-width: 90%}
+}
 
 @media screen and (max-width: 720px) {
-  .row-fluid div{margin-left: 0;display: block;width: 100%}
-}
+	header .logo{width: 100%;margin-left: 0}
+	.nav .item{display: none}
+  	.row-fluid div{margin-left: 0;display: block;width: 100%}
+}*//*<header>
+	<div class="nav fixed top">
+		<div class="container">
+			<div class="row-fluid">
+				<div class="col-3 logo">LetDooJS</div>
+				<div class="col-9">
+					<div class="item">Accueil</div>
+					<div class="item">Documentation</div>
+					<div class="item">Exemples</div>
+				</div>
+				</div>
+			</div>
+	</div>
+
+    <div class="titleHeader"><h1>LETDOOJS</h1></div>
+   	<div class="textHeader">JavaScript Framework</div>
+
+</header>
+
+
+<div class="container">
+
+
+	<div class="row-fluid">
+		<div class="col-9">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+			<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+		<div class="col-3">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="col-12">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+			<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+	</div>
+
+</div>
+
+<div class="block"></div>
+
+
+
+<div class="container">
+
+	<div class="row-fluid">
+		<div class="col-3">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+			<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+		<div class="col-3">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+		<div class="col-3">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+			<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+		<div class="col-3">
+		<h1>h1 Salut</h1>
+		<h2>h2 Salut</h2>
+		<h3>h3 Salut</h3>
+		<h4>h4 Salut</h4>
+		<h5>h5 Salut</h5>
+		<h6>h6 Salut</h6>
+		<p>Paragrabr <br>
+			Lorem ipsum Velit in eu laboris irure cupidatat non sint dolore nisi adipisicing nulla est nostrud sit cupidatat culpa laboris adipisicing amet nostrud do ut dolor et ad dolor sed eiusmod reprehenderit ea tempor est pariatur tempor mollit aute in aliqua anim fugiat Ut dolore ullamco laboris veniam sit Duis eiusmod sed non sint labore ad voluptate non irure et dolor elit eu enim in ut id anim ullamco laboris sint fugiat sit in deserunt quis sed consectetur non sit pariatur est Duis deserunt voluptate dolore sint sint tempor ea sed dolore do ut Duis qui eu et ad in adipisicing eu quis tempor ad reprehenderit nulla dolore cupidatat qui sit in anim ullamco ullamco fugiat Duis dolore officia laborum incididunt laborum amet aliquip ullamco in pariatur reprehenderit elit enim aliquip proident ea aliquip officia aliqua elit non sit in amet tempor qui et Ut velit mollit commodo magna adipisicing in in occaecat dolor dolore in occaecat ad quis velit in reprehenderit in elit fugiat dolore in consequat dolore ad laborum officia est deserunt irure adipisicing magna laboris ex veniam enim fugiat sunt Ut cupidatat tempor qui dolor dolor sit.
+		</p>
+		</div>
+	</div>
+
+</div>
+
+<footer class="">
+
+		<p>LetDooJs © 2013</p>
+
+</footer>
