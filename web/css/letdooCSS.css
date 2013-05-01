@@ -6,11 +6,11 @@ body,table,form,h1,h2,h3,h4,h5,h6,p{margin:0;padding: 0;font-family:inherit;font
 p{text-align: justify;margin: 15px 0}
 h1,h2,h3,h4,h5,h6{margin: 15px 0}
 h1{font-size: 3em}h2{font-size: 2.5em}h3{font-size: 2em}h4{font-size: 1.8em}h5{font-size: 1.4em}h6{font-size: 1em}
+section{width: 100%;padding: 80px 0}
 
 /*Custom LDJ Tags*/
 .LDJ-header, .LDJ-footer{height: 530px;width: 100%}
-.LDJ-footer{posidtion: absolute;bottom: 0}
-
+.LDJ-header.verticalCenter, .LDJ-footer.verticalCenter{padding: 100px 0;height: 330px}
 
 /*Texte*/
 .title{margin: auto;height: 120px;text-align: center;width: 100%;font-size: 8em;line-height: 120px;padding: 15px 0}
@@ -20,29 +20,98 @@ h1{font-size: 3em}h2{font-size: 2.5em}h3{font-size: 2em}h4{font-size: 1.8em}h5{f
 
 
 /*Bar*/
-.bar{}
+.bar{width: 100%;height: 60px}
+.bar.top,.bar.bottom{position: absolute;left: 0}
+.bar.left,.bar.right{position: absolute;height: 100%;width: 60px;top:0}
+
+/*Block*/
+.container{width: 1200px; margin: auto}
+.container{-webkit-transition: width 0.5s;-moz-transition: width 0.5s;-o-transition: width 0.5s;-ms-transition: width 0.5s;transition: width 0.5s}
+
+
+
+
+/*Grid*/
+.row, .row-fluid {width: 100%; margin: 30px auto; display: table}
+.row .col{margin: 0 15px; display: inline-table}
+.row-fluid .col{margin: 0 1.5%; display: inline-table}
+
+.row .one    {width: 70px}
+.row .two    {width: 170px}
+.row .three  {width: 270px}
+.row .four   {width: 370px}
+.row .five   {width: 470px}
+.row .six    {width: 570px}
+.row .seven  {width: 670px}
+.row .height {width: 770px}
+.row .nine   {width: 870px}
+.row .ten 	 {width: 970px}
+.row .eleven {width: 1070px}
+.row .twelve {width: 1200px}
+
+
+.row-fluid .one    {width: 3.0833%}
+.row-fluid .two    {width: 13.6666%}
+.row-fluid .three  {width: 21.9999%}
+.row-fluid .four   {width: 30.3333%}
+.row-fluid .five   {width: 48.6666%}
+.row-fluid .six    {width: 46.9999%}
+.row-fluid .seven  {width: 55.3333%}
+.row-fluid .height {width: 63.6666%}
+.row-fluid .nine   {width: 71.9999%}
+.row-fluid .ten 	 {width: 80.3333%}
+.row-fluid .eleven {width: 88.3333%}
+.row-fluid .twelve {width: 100%}
+
 
 /*Block Position*/
-.center-vertical{height: 25%}
-
+.top{top: 0}
+.left{left: 0}
+.right{right: 0}
+.bottom{bottom: 0}
+.relative{position: relative}
+.absolute{position: absolute}
+.fixed{position: fixed}
 
 /*Color Theme - LetDoo*/
-.letdoo-theme .LDJ-header,.letdoo-theme .LDJ-footer{color:#FFF;background: #222222;}
+.bg{background: rgba(70, 70, 70, 0.50)}
+.letdoo-theme .LDJ-header,.letdoo-theme .LDJ-footer{color:#FFF;background: #222222}
+.letdoo-theme section{background: #FFF}
+.letdoo-theme section.grey{background: #EDEDED}
+.letdoo-theme .bar{background: rgba(0, 0, 0, 0.70);color:#FFF}
+
+
+/*Media Query*/
+@media only screen and (max-width: 1300px) and (min-width: 950px){
+	.container {width: 950px}
+}
+
+@media only screen and (max-width: 1050px) and (min-width: 725px){
+	.container {width: 725px}
+}
+
+@media only screen and (max-width: 825px){
+	.container {width: 80%}
+}
+
+
+/* baro
+
+position: absolute;
+width: 300px;
+background: red;
+z-index: 5;
+right: -300px;
+}
+
+
+template
+width: 53%;
+position: relative;
 
 
 
-
-
-
-
-
-
-
-
-
-/*header, footer{height: 530px; background: #222222; color: #FFF; width: 100%}
-header .logo{margin-left: 60px;font-size: 2.8em; line-height: 60px; text-align: center;height: 100%}
-footer{height: 550px}
+/*
 .nav{background: #1F1F1F; height: 60px;width: 100%}
 .nav .row-fluid{margin: 0}
 .nav.fixed{background: rgba(0, 0, 0, 0.70)}
@@ -51,91 +120,19 @@ footer{height: 550px}
 .nav .item:hover{background: #262970}
 .nav.left{width: 300px;height: 100%}
 
-.fixed{position: fixed}
-.absolute{position: absolute}
-.top{top: 0}
-.left{left: 0}
-.right{right: 0}
-.bottom{bottom: 0}
-
-p{text-align: justify;margin: 15px 0}
-h1{font-size: 3em}h2{font-size: 2em}h3{font-size: 1.5em}
 
 
 
-.titleHeader, .textHeader{margin: 0 auto;height: 265px;text-align: center;width: 100%}
-.titleHeader h1{padding-top:160px;font-size: 5em}
-.textHeader{font-size: 3em}
-.container{width: 1200px; margin: auto}
-.big-text{font-size: 6em}
 .textcenter{margin: 0 auto; text-align: center}
 .center{margin: 0 auto; width: 50%}
 .pullRight{float: right}
 .pullLeft{float: left}
-padding-top
-.row, .row-fluid {width: 100%; margin: 30px auto; display: table}
-.row-fluid {width: 100%}
-.row div{margin-left: 30px; display: inline-table}
-.row-fluid div{margin-left: 3%; display: inline-table}
-.row div:first-child, .row-fluid div:first-child {margin-left: 0}
 
 
 
+------------------------
 
-
-
-@media screen and (min-width: 720px) {
-
-.row-fluid .col-1 {width: 3.0833%}
-.row-fluid .col-2 {width: 13.6666%}
-.row-fluid .col-3 {width: 21.9999%}
-.row-fluid .col-4 {width: 30.3333%}
-.row-fluid .col-5 {width: 48.6666%}
-.row-fluid .col-6 {width: 46.9999%}
-.row-fluid .col-7 {width: 55.3333%}
-.row-fluid .col-8 {width: 63.6666%}
-.row-fluid .col-9 {width: 71.9999%}
-.row-fluid .col-10 {width: 80.3333%}
-.row-fluid .col-11 {width: 88.3333%}
-.row-fluid .col-12 {width: 100%}
-}
-
-
-.block{
-	background: #313237;
-	width: 100%;
-	height: 860px;
-}
-/*
-.row .col-1 {width: 70px}
-.row .col-2 {width: 170px}
-.row .col-3 {width: 270px}
-.row .col-4 {width: 370px}
-.row .col-5 {width: 470px}
-.row .col-6 {width: 570px}
-.row .col-7 {width: 670px}
-.row .col-8 {width: 770px}
-.row .col-9 {width: 870px}
-.row .col-10 {width: 1000px}
-.row .col-11 {width: 1070px}
-.row .col-12 {width: 1200px}
-
-.w1200{width: 1200px; margin: auto}
-.w1000{width: 1000px; margin: auto}
-.w960{width: 960px; margin: auto}
-*//*
-
-.container{-webkit-transition: all 1s;-moz-transition: all 1s;-o-transition: all 1s;-ms-transition: all 1s;transition: all 1s}
-
-@media screen and (max-width: 1250px) {
-	.container{max-width: 90%}
-}
-
-@media screen and (max-width: 720px) {
-	header .logo{width: 100%;margin-left: 0}
-	.nav .item{display: none}
-  	.row-fluid div{margin-left: 0;display: block;width: 100%}
-}*//*<header>
+//*<header>
 	<div class="nav fixed top">
 		<div class="container">
 			<div class="row-fluid">
