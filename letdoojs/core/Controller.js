@@ -16,6 +16,10 @@
 			});
 		};
 
+		self.prototype.DOM= function (s) {
+			return LetDooJS.System.get("HandlingDOM");
+		};
+
 	};
 
 	var self = LetDooJS.Core.Controller;

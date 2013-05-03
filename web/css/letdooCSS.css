@@ -17,16 +17,16 @@ a{text-decoration: none;color: inherit}
 .LDJ-menu .logo{font-size: 2.5em;height: 100%;line-height: 70px;font-family: Titillium Web;float: left;width: 30%}
 .LDJ-menu nav{float: right;width: 70%;height: 100%}
 .LDJ-menu nav ul{list-style: none;font-family: Titillium Web;text-transform: uppercase;font-weight: bold;float: right}
-.LDJ-menu nav ul li {display: inline-block;margin: 0 20px;line-height: 70px;font-size: 0.9em}
+.LDJ-menu nav ul li {display: inline-block;padding: 0 25px;line-height: 70px;font-size: 0.9em}
 .LDJ-menu nav ul li a {display: block;width: 100%;height: 100%}
 .LDJ-menu nav ul li a:hover {text-decoration: underline}
 .LDJ-menu nav ul li.dropdown{cursor: pointer}
 .LDJ-menu nav ul li.dropdown:after{content: '>';display:inline-block;font-size: 1.2em; font-weight:bold;-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg)}
-.LDJ-menu nav ul li.dropdown:hover ul{display: block}
-.LDJ-menu nav ul li.dropdown ul{display:none; position: absolute; height: 200px; width: 100%; left: 0; right: 0; top: 70px;cursor: default}
+.LDJ-menu nav ul li.dropdown:hover ul{display: block;height: 200px}
+.LDJ-menu nav ul li.dropdown ul{-webkit-transition: height 0.5s;-moz-transition: height 0.5s;-o-transition: height 0.5s;-ms-transition: height 0.5s;transition: height 0.5s}
+.LDJ-menu nav ul li.dropdown ul{display:none; position: absolute; height: 0px; width: 100%; left: 0; right: 0; top: 70px;cursor: default}
 .LDJ-menu nav ul li.dropdown ul li{height: 100%;line-height: 200px;margin-right: 30px;float: left}
 .LDJ-menu nav ul li.dropdown ul .label{font-size: 2.5em;font-style: italic;margin-left: 150px;margin-right: 150px;border: none}
-
 
 .LDJ-menu.top,.LDJ-menu.bottom{position: absolute;left: 0;z-index: 3}
 .LDJ-menu.left,.LDJ-menu.right{position: absolute;height: 100%;width: 60px;top:0;z-index: 3}

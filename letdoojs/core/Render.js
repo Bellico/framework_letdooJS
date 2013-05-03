@@ -25,12 +25,12 @@
 			var DOM = LetDooJS.System.get("HandlingDOM");
 			if(viewCompiled[nameView]) {
 				var view = viewCompiled[nameView](params);
-				DOM.append(view, null, nameView);
+				DOM.appendTemplate(view, null, nameView);
 				if (callback) callback();
 			} else {
 				this.compileView(nameView, function (compile){
 					var view = viewCompiled[nameView](params);
-					DOM.append(view, null, nameView);
+					DOM.appendTemplate(view, null, nameView);
 					if (callback) callback();
 				});
 			}
