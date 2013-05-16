@@ -11,14 +11,18 @@
 		self.prototype.render = function (nameView, params){
 			self.renderApplied = true;
 			var render = LetDooJS.System.get("Render");
+			var process = LetDooJS.System.getObject("Process");
+
 			render.displayView(nameView, params, function(){
-				self.callbackRender();
+				process.callbackRender();
 			});
 		};
 
-		self.prototype.DOM= function (s) {
+		self.prototype.createDomObject= function (s) {
 			return LetDooJS.System.get("HandlingDOM");
 		};
+
+		//RenderPage
 
 	};
 

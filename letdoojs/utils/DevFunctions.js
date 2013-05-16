@@ -8,7 +8,7 @@ function LDJ_clear() {
 
 function LDJ_go (name) {
 	if (!name) {
-		routes = LetDooJS.System.get("Routing");
+		var routes = LetDooJS.System.get("Routing");
 		for (var i in routes){
 			console.log(i);
 		}
@@ -19,6 +19,6 @@ function LDJ_go (name) {
 }
 
 function LDJ_Routes (name) {
-	routes = LetDooJS.System.get("Routing");
+	var routes = LetDooJS.System.get("Routing");
 	return (name) ? routes[name] : routes ;
 }

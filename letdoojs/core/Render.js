@@ -2,7 +2,7 @@
 
 	LetDooJS.Core.Render = function () {
 
-		const PREFIX = "LDS_VIEW_";
+		const PREFIX = "LDJ-Template_";
 		var viewCompiled = [];
 
 		LetDooJS.Core.Render.prototype.compileView = function (nameView,callback) {

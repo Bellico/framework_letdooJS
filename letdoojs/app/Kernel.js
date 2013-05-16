@@ -10,7 +10,7 @@
 
 	LetDooJS.App.Kernel = function (){
 
-		LetDooJS.System.load (["Config-App","Profiler"],function(){
+		LetDooJS.System.load (["Profiler"],function(){
 			LetDooJS.System.get("Profiler");
 			LetDooJS.System.importCss(LetDooJS.App.Config.your_css, true);
 			LetDooJS.System.importCss(LetDooJS.App.Config.css_to_import);

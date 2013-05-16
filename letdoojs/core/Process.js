@@ -11,7 +11,7 @@
 			if(routeWaiting.length == 1) processAction(_R);
 		};
 
-		LetDooJS.Core.Controller.callbackRender = function(){
+		LetDooJS.Core.Process.callbackRender = function(){
 			routeWaiting.shift();
 			LetDooJS.Core.Controller.renderApplied = false;
 			if(routeWaiting[0]) processAction(routeWaiting[0]);
@@ -21,7 +21,7 @@
 
 			if (typeof _R == "function") {
 				_R();
-				LetDooJS.Core.Controller.callbackRender();
+				LetDooJS.Core.Process.callbackRender();
 				return false;
 			}
 
@@ -52,7 +52,7 @@
 			if (!controller[nameController][actionCalled]) throw "Action " + nameController + "::" + actionCalled + " not exist";
 			controller[nameController][actionCalled](controller);
 
-			if (!LetDooJS.Core.Controller.renderApplied) LetDooJS.Core.Controller.callbackRender();
+			if (!LetDooJS.Core.Controller.renderApplied) LetDooJS.Core.Process.callbackRender();
 		}
 	};
 

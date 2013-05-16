@@ -5,37 +5,36 @@
 
 		require : [
 			"ContextMenu-Behaviors"
+
 		],
 
-		indexAction : function ($scope){
+		init : function (_this){
+			_this.mdr = "Franck marinou"
+		},
+
+		indexAction : function (_this){
 			console.log("index");
 
+			console.log(_this.mdr);
 
 
-			$scope.render("homeTemplate",{ok : "Ok!"});
+			_this.render("homeTemplate",{ok : "Ok!"});
 
 
 		},
 
-		accAction : function ($){
+		accAction : function (_this){
 			console.log("acc");
-			var a = $.DOM.append({
-				style : {
-				position : "absolute",
-				background : "red" ,
-				top : 0,
-				left : 0,
-				width: "500px",
-				height: "500px",
-				"z-index":100
-			}})
+		/*
 
 
 			var op = 1 ;
 			function ok (){
 				a.style.opacity = op ;
 				op =op-0.01;
-			}
+			}*/
+
+
 
 			//setInterval(ok,50);
 

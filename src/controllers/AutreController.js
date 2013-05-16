@@ -3,13 +3,9 @@
 
 	LetDooJS.Controller.AutreController = {
 
-
-
-		indexAction : function ($scope){
+		indexAction : function (_this){
 			console.log("autre");
-
-			$scope.render("index",{ok : "Ok!"});
-
+			_this.render("index",{ok : "Ok!"});
 		}
 
 	};

@@ -4,7 +4,7 @@ var LetDooJS = {};
 
     LetDooJS.System = function (env) {
 
-        var SCRIPTS_CORE = ["Router","Routing-App","Process","Controller","Render","HandlingDOM","XMLHttpRequest-Components", "Listenner", "Mustache-Lib"];
+        var SCRIPTS_CORE = ["Routing-App","Router","Process","Render","HandlingDOM","XMLHttpRequest-Components", "Listenner", "Mustache-Lib", "Controller"];
 
         var DOMhead = document.head,
             path = "http://" ,
@@ -135,9 +135,12 @@ var LetDooJS = {};
             opt[1] = opt[1].toLowerCase();
             if(opt[1] == "controller")
                 return path + "src/controllers/" +  opt[0] + ".js";
-            if(opt[1] == "lib")
+            if(opt[1] == "lib") {
+                if(LetDooJS.App.Config.CDN_Lib && LetDooJS.App.Config.CDN_Lib[opt[0]]) {
+                    return LetDooJS.App.Config.CDN_Lib[opt[0]];
+                }
                 return path + "lib/" +  opt[0] + ".js";
-
+            }
             return path + "letdoojs/" + opt[1] + "/" +  opt[0] + ".js";
         }
 
